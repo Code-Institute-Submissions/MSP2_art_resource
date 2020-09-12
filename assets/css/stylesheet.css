@@ -1,3 +1,45 @@
 body{
     font-family: Roboto, Arial, sans-serif;
 }
+/*------------------------------------ Introducing guttering on wide screens (xl)  --------*/
+body, nav, footer {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #D9E6F3;
+}
+
+/*--------------------------------------------Heading   */
+
+header {
+    margin: 0;
+    padding:0;
+}
+
+.heading {
+    padding: 0;
+    background-color: #d9e6f3;
+}
+.header-text{ 
+    font-weight: 800;
+    font-size: 2em;
+    padding:0;
+    text-align: center;
+}
+.header-text-sm{ 
+    font-weight: 800;
+    font-size: 1em;
+    padding:0;
+    text-align: center;
+}
+
+.logo {
+    background: url("../images/artclub.jpg"); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    padding:0;
+}
