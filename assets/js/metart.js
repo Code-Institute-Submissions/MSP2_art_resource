@@ -33,7 +33,29 @@ function writeDepts() {
 
 /*
     Scripts to access API objects using their search resource
+
+    MET API search returns
+        a listing of all Object IDs for objects 
+        that contain the search query 
+        within the object’s data.
+        The returned query also contains total number of objects found.
 */
+
+var searchCrit1 = "departmentID=";
+var searchCrit2 = "q=sunflower";
+var qryStr ="Initial";  // q
+var qryHighlight;   // isHighlight
+var qryDept;        // departmentId
+var qryView;        // isOnView
+var qryCult;        // artistOrCulture
+var qryMedium;     // medium
+var qryImages;       // hasImages
+var qryLoc;          // geoLocation
+// must have both values for dateBegin and dateEnd queries:
+var qryBegin;        // dateBegin
+var qryEnd;          // dateEnd
+
+
 
 var searchCrit1 = "departmentID=11";
 var searchCrit2 = "q=sunflower";
@@ -91,12 +113,48 @@ function writeObjectDetails(obj_ID) {
     var objTitle = "";
     var objPrimaryImage ="";
     var objArtistDisplayName ="";
+    var objMedium = "";
+    var objDept = "";
+    var objBegin = "";
+    var objEnd = "";
+    var objArtistBegin = "";
+    var objArtistEnd = "";
     getMetObject(obj_ID,function(item){
         objTitle = item.title;
         objPrimaryImage = item.primaryImageSmall;
         objArtistDisplayName = item.artistDisplayName;
+        objMedium = item.medium;
+        objDept = item.department;
+        objBegin = item.objectBeginDate;
+        objEnd = item.objectEndDate;
+        objArtistBegin = item.artistBeginDate;
+        objArtistEnd = item.artistEndDate;
         document.getElementById("metArt").innerHTML += obj_ID + ": "+ objTitle +" <br>";
         document.getElementById("metArt").innerHTML += "<img src="+ objPrimaryImage +" alt="+objTitle+"\"> <br>";
-        document.getElementById("metArt").innerHTML += "artist: " + objArtistDisplayName +" <br>  <hr>";
+        document.getElementById("metArt").innerHTML += "artist: " + objArtistDisplayName +" <br>";
+        document.getElementById("metArt").innerHTML += "artist birth: " + objArtistBegin +" death: "+objArtistEnd+ "<br>";
+        document.getElementById("metArt").innerHTML += "medium: " + objMedium +" <br>";
+        document.getElementById("metArt").innerHTML += "department: " + objDept +" <br>";
+        document.getElementById("metArt").innerHTML += "object begin date: " + objBegin + " object end date: "+ objEnd + " <br>";
+        document.getElementById("metArt").innerHTML += "<hr>";
     });
+};
+
+function getSelection() {
+    $(document).ready(function(){
+        $("#searchBtn").on("click",function() {
+            writeSelection();
+        });
+    });  
+};
+
+function writeSelection() {
+    qryStr = document.forms["metArtCriteria"]["queryString"].value;
+    qryDept = document.forms["metArtCriteria"]["qryDept"].value;
+
+    document.getElementById("metCriteria").innerHTML = "<p> writeSelection: "+this.qryStr+" </p>";
+    document.getElementById("metCriteria").innerHTML += "<p> writeSelection: "+this.qryDept+" </p>";
+
+    searchCrit1 = "departmentId=" + qryDept;
+    searchCrit2 = "q="+ qryStr;
 };
