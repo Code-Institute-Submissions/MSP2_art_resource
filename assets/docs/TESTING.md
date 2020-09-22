@@ -15,6 +15,12 @@
 
 For the given criteria both give a total of 13 objects found in the Metropolitan Museum of Art's collection.
 
+### Anomaly found in API's search function.
+Unfortunately found that when reversing the order of the criteria in the API call, I received only one object returned.
+![Museum API reversed order search](../images/project_screenshots/Testing_searchAPIanomaly.jpg)
+
+Sent email querying this to the site's given email address: openaccess@metmuseum.org, on September 22nd 2020.
+
 3. 
     4. Try to submit the form with all inputs valid and verify that a success message appears.
 
