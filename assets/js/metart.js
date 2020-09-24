@@ -1,6 +1,31 @@
-// Setting up api portal
+/*  
+        Setting up api portal
+*/
 const apiMet = "https://collectionapi.metmuseum.org/public/collection/v1/";
 const apiMetObject = "https://collectionapi.metmuseum.org/public/collection/v1/objects/";
+
+/* 
+
+    Declaring global variables used by more than one function
+
+*/
+
+var searchCrit1 = "departmentID=";
+var searchCrit2 = "q=sunflower";
+var qryStr ="";  // q
+var qryHighlight;   // isHighlight
+var qryDept;        // departmentId
+var qryView;        // isOnView
+var qryCult;        // artistOrCulture
+var qryMedium;     // medium
+var qryImages;       // hasImages
+var qryLoc;          // geoLocation
+// must have both values for dateBegin and dateEnd queries:
+var qryBegin;        // dateBegin
+var qryEnd;          // dateEnd
+var deptName; //department Name
+var totalObjects;   // to capture the total number of objects listed on the Met's public collectsions
+
 
 
 /*
@@ -31,6 +56,30 @@ function writeDepts() {
     });
 };
 
+function writeDeptName(data) {
+    document.getElementById("metCriteria").innerHTML += " : "+ data.displayName + "</p>";
+}
+
+function getDeptName(deptId) {
+    var depts = [];
+    getMetDept(function(item) {
+        depts=item.departments;
+        depts.forEach(function(item) {
+              if ( item.departmentId == deptId ){
+                  writeDeptName(item);
+              }
+        });
+    });
+}
+
+/*
+    Initialising popovers to help with selection criteria validation, UX
+*/
+
+$(document).ready(function(){
+  $('[data-toggle="popover"]').popover();
+});
+
 /*
     Scripts to access API objects using their search resource
 
@@ -41,24 +90,8 @@ function writeDepts() {
         The returned query also contains total number of objects found.
 */
 
-var searchCrit1 = "departmentID=";
-var searchCrit2 = "q=sunflower";
-var qryStr ="Initial";  // q
-var qryHighlight;   // isHighlight
-var qryDept;        // departmentId
-var qryView;        // isOnView
-var qryCult;        // artistOrCulture
-var qryMedium;     // medium
-var qryImages;       // hasImages
-var qryLoc;          // geoLocation
-// must have both values for dateBegin and dateEnd queries:
-var qryBegin;        // dateBegin
-var qryEnd;          // dateEnd
 
 
-
-var searchCrit1 = "departmentID=11";
-var searchCrit2 = "q=sunflower";
 
 function writeCriteria() {
     document.getElementById("metCriteria").innerHTML = "<p> Search criteria: "+searchCrit1+" "+searchCrit2+" </p>";
@@ -91,7 +124,15 @@ function getMetObject(obj_ID, cb2) {
 function writeObjects() {
     var objects = [];
     var objectId;
- 
+
+   /*
+        Clear down previous search results...
+   */
+   document.getElementById("metArt").innerHTML = "";
+   /*
+        Now for current search results.....
+   */
+    
     writeCriteria();
     getMetSearch(function(item) {
        var total_Found;
@@ -119,6 +160,13 @@ function writeObjectDetails(obj_ID) {
     var objEnd = "";
     var objArtistBegin = "";
     var objArtistEnd = "";
+    var objName = "";
+    var objCulture = "";
+    var objPeriod = "";
+    var objDynasty = "";
+    var objReign = "";
+    var objDimensions = "";
+    var objCreditLine = "";
     getMetObject(obj_ID,function(item){
         objTitle = item.title;
         objPrimaryImage = item.primaryImageSmall;
@@ -129,13 +177,41 @@ function writeObjectDetails(obj_ID) {
         objEnd = item.objectEndDate;
         objArtistBegin = item.artistBeginDate;
         objArtistEnd = item.artistEndDate;
+        objName = item.objectName;
+        objCulture = item.culture;
+        objPeriod = item.period;
+        objDynasty = item.dynasty;
+        objReign = item.reign;
+        objDimensions = item.dimensions;
+        objCreditLine = item.creditLine;
         document.getElementById("metArt").innerHTML += obj_ID + ": "+ objTitle +" <br>";
+        document.getElementById("metArt").innerHTML += objName +" <br>";
         document.getElementById("metArt").innerHTML += "<img src="+ objPrimaryImage +" alt="+objTitle+"\"> <br>";
         document.getElementById("metArt").innerHTML += "artist: " + objArtistDisplayName +" <br>";
-        document.getElementById("metArt").innerHTML += "artist birth: " + objArtistBegin +" death: "+objArtistEnd+ "<br>";
+        if (objArtistBegin.length > 0 ) {
+            document.getElementById("metArt").innerHTML += "artist birth: " + objArtistBegin +" death: "+objArtistEnd+ "<br>";
+        }
         document.getElementById("metArt").innerHTML += "medium: " + objMedium +" <br>";
         document.getElementById("metArt").innerHTML += "department: " + objDept +" <br>";
+        if (objCulture.length > 0) {
+            document.getElementById("metArt").innerHTML += "culture: " + objCulture +" <br>";
+        }
+        if (objPeriod.length > 0){
+            document.getElementById("metArt").innerHTML += "period: " + objPeriod +" <br>";
+        }
+        if (objDynasty.length > 0){
+            document.getElementById("metArt").innerHTML += "dynasty: " + objDynasty +" <br>";
+        }
+        if (objReign.length > 0){
+            document.getElementById("metArt").innerHTML += "reign: " + objReign +" <br>";
+        }
+        if (objDimensions.length > 0){
+            document.getElementById("metArt").innerHTML += "artwork dimensions: " + objDimensions +" <br>";
+        }        
         document.getElementById("metArt").innerHTML += "object begin date: " + objBegin + " object end date: "+ objEnd + " <br>";
+        if (objCreditLine.length > 0){
+            document.getElementById("metArt").innerHTML += "origin and year acquired: " + objCreditLine +" <br>";
+        }         
         document.getElementById("metArt").innerHTML += "<hr>";
     });
 };
@@ -143,6 +219,7 @@ function writeObjectDetails(obj_ID) {
 function getSelection() {
     $(document).ready(function(){
         $("#searchBtn").on("click",function() {
+            document.getElementById("metCriteria").innerHTML = "";
             writeSelection();
         });
     });  
@@ -151,10 +228,24 @@ function getSelection() {
 function writeSelection() {
     qryStr = document.forms["metArtCriteria"]["queryString"].value;
     qryDept = document.forms["metArtCriteria"]["qryDept"].value;
+    qryHighlight = document.forms["metArtCriteria"]["qryHighlight"].value;
+    qryView = document.forms["metArtCriteria"]["qryView"].value;        // isOnView
+    qryCult = document.forms["metArtCriteria"]["qryCult"].value;       // artistOrCulture
+    qryMedium = document.forms["metArtCriteria"]["qryMedium"].value;     // medium
+    qryImages = document.forms["metArtCriteria"]["qryImages"].value;       // hasImages
+    qryLoc = document.forms["metArtCriteria"]["qryLoc"].value;          // geoLocation
+// must have both values for dateBegin and dateEnd queries:
+    qryBegin = document.forms["metArtCriteria"]["qryBegin"].value;        // dateBegin
+    qryEnd = document.forms["metArtCriteria"]["qryEnd"].value;    
 
-    document.getElementById("metCriteria").innerHTML = "<p> writeSelection: "+this.qryStr+" </p>";
-    document.getElementById("metCriteria").innerHTML += "<p> writeSelection: "+this.qryDept+" </p>";
+    let criteriaString = `Selection: ${qryStr} Department: ${qryDept} highlighted: ${qryHighlight} on view: ${qryView}
+        artist or culture: ${qryCult} medium: ${qryMedium} has images: ${qryImages} geographic location: ${qryLoc} 
+        work date began: ${qryBegin} work date finished: ${qryEnd}`;
+    document.getElementById("metCriteria").innerHTML = "<p> " + criteriaString + "</p>";
 
-    searchCrit1 = "departmentId=" + qryDept;
-    searchCrit2 = "q="+ qryStr;
+
+    getDeptName(qryDept);  
+
+    searchCrit1 = `departmentId=${qryDept}&q=${qryStr}`;
+    searchCrit2 = `isHighlight=${qryHighlight}&isOnView=${qryView}&hasImages=${qryImages}&geoLocation=${qryLoc}&dateBegin=${qryBegin}&dateEnd=${qryEnd}`;
 };

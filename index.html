@@ -1,100 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- MileStone Project 2 for HTML5/CSS3/JavaScript/jQuery -->
+    <meta charset="UTF-8" />
+    <meta name="description" content="Prickwillow art club's resource" />
+    <meta
+      name="keywords"
+      content="Prickwillow artclub art Metropolitan Museum"
+    />
+    <meta name="author" content="Mike Green" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head>
-	<!-- MileStone Project 2 for HTML5/CSS3/JavaScript/jQuery -->
-	<meta charset="UTF-8">
-	<meta name="description" content="Prickwillow art club's resource">
-	<meta name="keywords" content="Prickwillow artclub art Metropolitan Museum">
-	<meta name="author" content="Mike Green">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Using Bootstrap CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
 
-	<!-- Using Bootstrap CDN -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <!-- <script src="https://kit.fontawesome.com/169cf7da54.js" crossorigin="anonymous"></script> -->
 
-	<!-- <script src="https://kit.fontawesome.com/169cf7da54.js" crossorigin="anonymous"></script> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css"
+      type="text/css"
+    />
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css"
-		type="text/css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/stylesheet.css" />
 
-	<link type="text/css" rel="stylesheet" href="assets/css/stylesheet.css">
+    <title>MSP2_art_resource</title>
+  </head>
 
-	<title>MSP2_art_resource</title>
-</head>
+  <body>
+    <!--    Header -->
+    <header class="heading">
+      <div class="jumbotron text-center row row-cols-2">
+        <div class="col-3 d-none d-md-block">Art Resource</div>
+        <div class="col-9 header-text d-none d-md-block">
+          Metropolitan Museum of Art's Collection
+        </div>
+      </div>
+    </header>
 
-<body>
-	<!--    Header -->
-	<header class="heading">
-		<div class="jumbotron text-center row row-cols-2">
+    <section class="container-fluid">
+      <!-- The Buttons -->
+      <div id="theButtons">
+        <table>
+          <tr>
+            <button
+              type="button"
+              class="btn btn-secondary btn-sm"
+              onclick="writeDepts()"
+              data-toggle="modal"
+              data-target="#deptModal"
+            >
+              Get Met Art Departments
+            </button>
+          </tr>
+          <tr>
+            <button
+              type="button"
+              class="btn btn-secondary btn-sm"
+              onclick="getSelection()"
+              data-toggle="modal"
+              data-target="#searchModal"
+            >
+              Selection Criteria for Met Art
+            </button>
+          </tr>
+          <tr>
+            <button
+              type="button"
+              class="btn btn-secondary btn-sm"
+              onclick="writeObjects()"
+              data-target="#metArt"
+            >
+              Get Met Art Objects
+            </button>
+          </tr>
+        </table>
+      </div>
 
-			<div class="col-3 d-none d-md-block">
-				<a class="col logo" href="index.html">
-					<img src="assets/images/artclub.jpg" class="img-rounded" alt="Art Club" width="100" height="100"/>
-                </a>
-			</div>
-			<div class="col-9  header-text d-none d-md-block"> Prickwillow Art Club </div>
-
-			<!-- Hamburger menu navbar for small width screens -->
-			<div class="col-12 d-md-none px-0">
-				<nav class="navbar navbar-expand-sx navbar-light bg-light">
-					<a class="navbar-brand" href="index.html">
-						<!-- Prickwillow Art Club -->
-						<img src="assets/images/artclub.jpg" class="img-rounded" alt="Prickwillow Art Club" width="50" height="50"/>
-						<span class="header-text-sm"> Prickwillow Art Club </span>
-					</a>
-
-					<div class="collapse navbar-collapse" id="navbarNav">
-
-					</div>
-				</nav>
-			</div>
-			<!-- Larger screen navigation -->
-			<div class="col-12 offset-1 d-none d-md-block">
-			</div>
-		</div>
-
-	</header>
-
-	<section class="container-fluid">
-
-<!-- The Buttons -->
-    <div>
-        <button type="button" class="btn btn-secondary btn-sm" onclick="writeDepts()" data-toggle="modal" data-target="#deptModal">Get Met Art Departments</button>
-        <br />
-        <button type="button" class="btn btn-secondary btn-sm" onclick="getSelection()" data-toggle="modal" data-target="#searchModal">Selection Criteria for Met Art</button>
-        <br />
-        <button type="button" class="btn btn-secondary btn-sm" onclick="writeObjects()" data-target="#metArt">Get Met Art Objects</button>
-    </div>
-
-
-
-<!-- The Department Modal -->
-    <div class="modal" id="deptModal">
+      <!-- The Department Modal -->
+      <div class="modal" id="deptModal">
         <div class="modal-dialog modal-dialog-scrollable">
-             <div class="modal-content">
-
-      <!-- Modal Header -->
-        <div class="modal-header">
-            <h4 class="modal-title">Metropolitan Museum of Art Departments</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-
-      <!-- Modal body -->
-        <div class="modal-body">
-            <div id="metArtDept">   </div>
-        </div>
-
-      <!-- Modal footer -->
-        <div class="modal-footer">
-            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
-        </div>
-
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">
+                Metropolitan Museum of Art Departments
+              </h4>
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
             </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div id="metArtDept"></div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-danger btn-sm"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
         </div>
-    </div>
-          <!-- The Search Criteria Modal -->
+      </div>
+
+      <!-- The Search Criteria Modal -->
       <div class="modal" id="searchModal">
         <div class="modal-dialog modal-dialog-scrollable">
           <div class="modal-content">
@@ -111,13 +133,15 @@
             <!-- Modal body -->
             <div class="modal-body">
               <div id="metArtSearch">
-                <form name="metArtCriteria" class="metArtCriteria" onsubmit="return writeSelection()" method="GET">
+                <form name="metArtCriteria" class="metArtCriteria" 
+                    onsubmit="return writeSelection()" method="GET">
                   <fieldset>
                     <legend>Search Criteria</legend>
-
+                    <div id="searchCautionary"></div>
                     <div class="form-group">
                       <div class="form-check form-check-inline col-md-3">
-                        <label class="form-check-label" for="queryString">search term
+                        <label class="form-check-label" for="queryString"
+                          >search term
                         </label>
                         <input
                           type="text"
@@ -126,9 +150,17 @@
                           name="queryString"
                           required
                         />
-                        </div>
+                      </div>
                       <div class="form-check form-check-inline col-md-3">
-                        <label class="form-check-label" for="qryHighlight" data-toggle="tooltip" data-placement="top" title="true or false">is highlighted?
+                        <label
+                          class="form-check-label"
+                          for="qryHighlight"
+                          data-toggle="popover"
+                          data-trigger="hover"
+                          data-placement="top"
+                          title="Highlights are selected works of art from permanent collection"
+                          data-content="true or false"
+                          >is highlighted?
                         </label>
                         <input
                           type="text"
@@ -136,23 +168,39 @@
                           id="qryHighlight"
                           name="qryHighlight"
                           value="true"
-                          size = "5"
-                          required
+                          size="5"
                         />
-                        </div>                        
-                        <div class="form-check form-check-inline col-md-3">
-                        <label class="form-check-label" for="qryDept">search Department
+                      </div>
+                      <div class="form-check form-check-inline col-md-3">
+                        <label
+                          class="form-check-label"
+                          for="qryDept"
+                          data-toggle="popover"
+                          data-trigger="hover"
+                          data-placement="top"
+                          title="Department Id"
+                          data-content="Select 'Get Met Art Departments' button for valid list"
+                          >Search Department
                         </label>
                         <input
                           type="text"
                           class="form-input"
                           id="qryDept"
                           name="qryDept"
+                          size="2"
                           required
                         />
-                        </div>
-                        <div class="form-check form-check-inline col-md-3">
-                        <label class="form-check-label" for="qryView" data-toggle="tooltip" data-placement="top" title="true or false">is on view?
+                      </div>
+                      <div class="form-check form-check-inline col-md-3">
+                        <label
+                          class="form-check-label"
+                          for="qryView"
+                          data-toggle="popover"
+                          data-trigger="hover"
+                          data-placement="top"
+                          title="Are on view in the museum"
+                          data-content="Either true or false"
+                          >is on view?
                         </label>
                         <input
                           type="text"
@@ -161,33 +209,54 @@
                           name="qryView"
                           value="true"
                           size="5"
-                          required
                         />
-                        </div>
-                        <div class="form-check form-check-inline col-md-3">
-                        <label class="form-check-label" for="qryCult">artist or culture?
+                      </div>
+                      <div class="form-check form-check-inline col-md-3">
+                        <label
+                          class="form-check-label"
+                          for="qryCult"
+                          data-toggle="popover"
+                          data-trigger="hover"
+                          data-placement="top"
+                          title="Searching against the artist name or culture field"
+                          data-content="Either true or false"
+                          >artist or culture?
                         </label>
                         <input
                           type="text"
                           class="form-input"
                           id="qryCult"
                           name="qryCult"
-                          required
                         />
-                        </div>
-                        <div class="form-check form-check-inline col-md-3">
-                        <label class="form-check-label" for="qryMedium">what medium?
+                      </div>
+                      <div class="form-check form-check-inline col-md-3">
+                        <label
+                          class="form-check-label"
+                          for="qryMedium"
+                          data-toggle="popover"
+                          data-trigger="hover"
+                          data-placement="top"
+                          title="Returns objects of specified medium or type"
+                          data-content="E.g.: 'Ceramics', 'Furniture', 'Paintings', 'Sculpture', 'Textiles', etc."
+                          >what medium?
                         </label>
                         <input
                           type="text"
                           class="form-input"
                           id="qryMedium"
                           name="qryMedium"
-                          required
                         />
-                        </div>              
-                        <div class="form-check form-check-inline col-md-3">
-                        <label class="form-check-label" for="qryImages" data-toggle="tooltip" data-placement="top" title="true or false">has images?
+                      </div>
+                      <div class="form-check form-check-inline col-md-3">
+                        <label
+                          class="form-check-label"
+                          for="qryImages"
+                          data-toggle="popover"
+                          data-trigger="hover"
+                          data-placement="top"
+                          title="Images required"
+                          data-content="Either true or false"
+                          >has images?
                         </label>
                         <input
                           type="text"
@@ -196,43 +265,71 @@
                           name="qryImages"
                           value="true"
                           size="5"
-                          required
                         />
-                        </div>
-                        <div class="form-check form-check-inline col-md-3">
-                        <label class="form-check-label" for="qryLoc">location?
+                      </div>
+                      <div class="form-check form-check-inline col-md-3">
+                        <label
+                          class="form-check-label"
+                          for="qryLoc"
+                          data-toggle="popover"
+                          data-trigger="hover"
+                          data-placement="top"
+                          title="Geographic Location"
+                          data-content="Examples include: 'Europe', 'France', 'Paris', 'China', 'New York', etc."
+                          >location?
                         </label>
                         <input
                           type="text"
                           class="form-input"
                           id="qryLoc"
                           name="qryLoc"
-                          required
                         />
-                        </div>    
-                       <div class="form-check form-check-inline col-md-3">
-                        <label class="form-check-label" for="qryBegin" data-toggle="tooltip" data-placement="top" title="e.g. 1600">beginning date?
+                      </div>
+                      <div class="form-check form-check-inline col-md-3">
+                        <label
+                          class="form-check-label"
+                          for="qryBegin"
+                          data-toggle="popover"
+                          data-trigger="hover"
+                          data-placement="top"
+                          title="Objects since this year"
+                          data-content="e.g. 1600"
+                          >beginning date?
                         </label>
                         <input
                           type="text"
                           class="form-input"
                           id="qryBegin"
                           name="qryBegin"
-                          required
+                          size="4"
                         />
-                        <label class="form-check-label" for="qryEnd" data-toggle="tooltip" data-placement="top" title="e.g. 1800">end date?
+                        <label
+                          class="form-check-label"
+                          for="qryEnd"
+                          data-toggle="popover"
+                          data-trigger="hover"
+                          data-placement="top"
+                          title="Objects prior to this year"
+                          data-content="e.g. 1800"
+                          >end date?
                         </label>
                         <input
                           type="text"
                           class="form-input"
                           id="qryEnd"
                           name="qryEnd"
-                          required
-                        />                      
-                        </div>                                                                                                               
+                          size="4"
+                        />
+                      </div>
                     </div>
-                    <button type="submit" id="searchBtn" class="btn btn-danger btn-sm" data-dismiss="modal" onclick="writeSelection()">
-                    Search
+                    <button
+                      type="submit"
+                      id="searchBtn"
+                      class="btn btn-danger btn-sm"
+                      data-dismiss="modal"
+                      onclick="writeSelection()"
+                    >
+                      Search
                     </button>
                   </fieldset>
                 </form>
@@ -240,46 +337,44 @@
             </div>
 
             <!-- Modal footer -->
-            <div class="modal-footer">   
-            </div>
+            <div class="modal-footer"></div>
           </div>
         </div>
       </div>
 
-<!-- Search objects results -->
-    <div id="metCriteria">
-    </div>
-    <div id="metArt">
-    </div>
+      <!-- Search objects results -->
+      <div id="metCriteria"></div>
+      <div id="metArt"></div>
+    </section>
 
-	</section>
+    <!--    Footer -->
+    <footer class="container-fluid"></footer>
+    <!-- Bootstrap Javascript CDN  aria -->
 
-	<!--    Footer -->
-	<footer class="container-fluid">
-
-	</footer>
-	<!-- Bootstrap Javascript CDN  aria -->
-
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-	</script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-	</script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-	</script>
-    
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Metropolitan Museum of Art JSON API -->
-    <script async defer
-        src="https://collectionapi.metmuseum.org/public/collection/v1/" >
-    </script>
-    
+    <script
+      async
+      defer
+      src="https://collectionapi.metmuseum.org/public/collection/v1/"
+    ></script>
 
     <!-- Metropolitan Museum of Art API portal -->
     <script src="assets/js/metart.js"></script>
-
-</body>
-
+  </body>
 </html>

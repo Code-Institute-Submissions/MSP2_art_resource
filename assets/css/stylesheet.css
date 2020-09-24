@@ -33,13 +33,45 @@ header {
     text-align: center;
 }
 
-.logo {
-    background: url("../images/artclub.jpg"); 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    transition: all .5s ease-in-out;
-    -moz-transition: all .5s ease-in-out;
-    -webkit-transition: all .5s ease-in-out;
-    padding:0;
+/*-------------------------------------------- overriding bootstrap class properties */
+.container-fluid {
+    padding: 0;
+}
+
+.jumbotron {
+    padding:1rem;
+    margin: 0;
+    background-color: #D9E6F3;
+}
+
+#theButtons {
+    padding:1rem;
+    margin: 0;
+    background-color: #D9E6F3;
+}
+
+
+/*--------------------------------------------Modal */
+#metArtDept {
+    font-size: 0.75em;
+    letter-spacing: 0.5px;
+}
+/*--------------------------------------------Searched collection display */
+#metCriteria {
+    font-size: 0.75em;
+}
+#metArt {
+    font-size: 0.5em;
+    margin-left: 5px;
+}
+
+/*--------------------------------------------Footer   */
+
+footer {
+    background-color: #d9e6f3;   
+    color: #fafafa;
+    min-height: 120px;
+    margin: 0;
+    padding-left: 10rem;
+    text-align: center;
 }

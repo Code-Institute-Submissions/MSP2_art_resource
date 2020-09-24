@@ -35,8 +35,7 @@ In addition, you may also use this section to discuss plans for additional featu
 ## Technologies Used
 
 In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
-- [RAML](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md) - used RESTful API Modelling Language.
-- [API Notebook](https://api-notebook.anypoint.mulesoft.com/) - used to test RAML spec.
+
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to simplify DOM manipulation.
 
@@ -86,3 +85,4 @@ In addition, if it is not obvious, you should also describe how to run your code
 ### Acknowledgements
 
 - I received inspiration for this project from [programmableweb](https://www.programmableweb.com/api-university) 
+- More technical help on javascript from [w3schools](https://www.w3schools.com/js/default.asp)
