@@ -2,7 +2,7 @@
 
 Milestone Project 2.
 
-Using New York Metropolitan Museum of Art's JSON API of their collection as an illustrative art resource for an art club. Utilising the API's search tool to search out art objects for reference and education of all members and vistors to the art club.
+Using New York Metropolitan Museum of Art's JSON API of their collection as an illustrative art resource for an art club. Utilising the API's search tool to search out art objects for reference and education of all members and visitors to the art club.
  
 ## UX
  
