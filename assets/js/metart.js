@@ -26,7 +26,43 @@ var qryEnd;          // dateEnd
 var deptName; //department Name
 var totalObjects;   // to capture the total number of objects listed on the Met's public collectsions
 
+/*
+    Initialising popovers to help with selection criteria validation, UX
+    Also calling function to collect API object total
+*/
 
+$(document).ready(function(){
+  $('[data-toggle="popover"]').popover();
+    totalCollection();
+});
+
+
+/*
+    Functions to get latest object total from API
+*/
+
+function getTotalObjects(cb) {
+  var xhr = new XMLHttpRequest();
+  var apiAll = apiMetObject.substring(0, apiMetObject.length - 1);
+  xhr.open("GET", apiAll);
+  xhr.send();
+  xhr.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      cb(JSON.parse(this.responseText));
+      console.log(
+        "********  JSON response text " + JSON.parse(this.responseText)
+      );
+    }
+  };
+}
+
+function totalCollection() {
+  getTotalObjects(function (item) {
+    totalObjects = item.total;
+    document.getElementById("metArtTotal").innerHTML = `There is a total of ${totalObjects} recorded objects in the Met's collection.`;
+    return totalObjects;
+  });
+}
 
 /*
         Scripts to access Met API for their art department details
@@ -72,13 +108,6 @@ function getDeptName(deptId) {
     });
 }
 
-/*
-    Initialising popovers to help with selection criteria validation, UX
-*/
-
-$(document).ready(function(){
-  $('[data-toggle="popover"]').popover();
-});
 
 /*
     Scripts to access API objects using their search resource
@@ -89,9 +118,6 @@ $(document).ready(function(){
         within the object’s data.
         The returned query also contains total number of objects found.
 */
-
-
-
 
 function writeCriteria() {
     document.getElementById("metCriteria").innerHTML = "<p> Search criteria: "+searchCrit1+" "+searchCrit2+" </p>";

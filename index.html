@@ -49,39 +49,36 @@
       <div id="theButtons">
         <table>
           <tr>
+          <td>
             <button
-              type="button"
-              class="btn btn-secondary btn-sm"
+              type="button" id="btnGetDepts" class="btn btn-secondary btn-sm"
               onclick="writeDepts()"
-              data-toggle="modal"
-              data-target="#deptModal"
-            >
+              data-toggle="modal"     data-target="#deptModal">   
               Get Met Art Departments
             </button>
-          </tr>
-          <tr>
+          </td>
+          <td>
             <button
-              type="button"
-              class="btn btn-secondary btn-sm"
+              type="button" id="btnGetCriteria" class="btn btn-secondary btn-sm"
               onclick="getSelection()"
-              data-toggle="modal"
-              data-target="#searchModal"
-            >
+              data-toggle="modal"  data-target="#searchModal">
               Selection Criteria for Met Art
             </button>
+            </td>
           </tr>
           <tr>
             <button
-              type="button"
-              class="btn btn-secondary btn-sm"
+              type="button" id="btnGetObjects" class="btn btn-secondary btn-sm"
               onclick="writeObjects()"
-              data-target="#metArt"
-            >
+              data-target="#metArt" >
               Get Met Art Objects
             </button>
           </tr>
         </table>
       </div>
+      
+      <div id="metArtTotal">
+      </div>  
 
       <!-- The Department Modal -->
       <div class="modal" id="deptModal">
