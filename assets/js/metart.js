@@ -264,14 +264,21 @@ function writeSelection() {
     qryBegin = document.forms["metArtCriteria"]["qryBegin"].value;        // dateBegin
     qryEnd = document.forms["metArtCriteria"]["qryEnd"].value;    
 
+/*
     let criteriaString = `Selection: ${qryStr} Department: ${qryDept} highlighted: ${qryHighlight} on view: ${qryView}
         artist or culture: ${qryCult} medium: ${qryMedium} has images: ${qryImages} geographic location: ${qryLoc} 
         work date began: ${qryBegin} work date finished: ${qryEnd}`;
     document.getElementById("metCriteria").innerHTML = "<p> " + criteriaString + "</p>";
-
+*/
 
     getDeptName(qryDept);  
 
     searchCrit1 = `departmentId=${qryDept}&q=${qryStr}`;
     searchCrit2 = `isHighlight=${qryHighlight}&isOnView=${qryView}&hasImages=${qryImages}&geoLocation=${qryLoc}&dateBegin=${qryBegin}&dateEnd=${qryEnd}`;
+
+/*
+    Now display the button to allow user to get selected works....
+*/
+    document.getElementById("btnGetObjects").style.display = "block";
+
 };
