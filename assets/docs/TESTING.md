@@ -21,7 +21,28 @@ Unfortunately found that when reversing the order of the criteria in the API cal
 
 Sent email querying this to the site's given email address: openaccess@metmuseum.org, on September 22nd 2020.
 
-3. 
+3. Check that a blank search term works.
+
+### Museums search API invoked with blank 'q'
+
+![Museums API blank search](../images/project_screenshots/Test_SearchAPI_dept21_q_blank.jpg)
+
+### Form's criteria search invoked with blank 'q'
+
+![Forms Search with blank q](../images/project_screenshots/Test_SearchFORM_dept21_q_blank.jpg)
+
+### Museums search API invoked with empty quotes 'q'
+
+![Museums API q quotes search](../images/project_screenshots/Test_SearchAPI_dept21_q_emptyquotes.jpg)
+
+### Form's search invoked with empty quotes 'q'
+
+![Forms Search with empty quotes q](../images/project_screenshots/Test_SearchFORM_dept21_q_enptyquotes.jpg)
+
+Although both API and Form searches match results, I believe that the returned result for blank search term 'q' to be misleading. 
+Proposing to intercept blank search terms on form and replace with empty quotes.
+
+
     4. Try to submit the form with all inputs valid and verify that a success message appears.
 
 No success message as no valid action on submit. Method will be "POST" as there is personal information.
