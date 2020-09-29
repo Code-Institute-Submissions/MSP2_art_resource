@@ -29,11 +29,13 @@ var totalObjects;   // to capture the total number of objects listed on the Met'
 /*
     Initialising popovers to help with selection criteria validation, UX
     Also calling function to collect API object total
+    Also populating departments array
 */
 
 $(document).ready(function(){
   $('[data-toggle="popover"]').popover();
     totalCollection();
+    loadDepts();
 });
 
 
@@ -91,6 +93,19 @@ function writeDepts() {
             });
     });
 };
+
+function loadDepts() {
+/*  
+    Using temporary store for department names
+    Will clear when browser closed
+*/
+    getMetDept(function (item) {
+        depts = item.departments;
+        depts.forEach(function(item){
+            sessionStorage.setItem(item.departmentId,item.displayName);
+        })
+    });
+}
 
 function writeDeptName(data) {
     document.getElementById("metCriteria").innerHTML += " : "+ data.displayName + "</p>";

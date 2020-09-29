@@ -148,6 +148,7 @@
                           class="form-input"
                           id="queryString"
                           name="queryString"
+                          value="''"
                           required
                         />
                       </div>
@@ -183,14 +184,21 @@
                           >Search Department
                         </label>
                         <input
-                          type="text"
+                          type="number"
                           class="form-input"
                           id="qryDept"
                           name="qryDept"
-                          size="2"
+                          min="1"
+                          max="21"
                           required
                         />
+                        <button type="button" class="btn btn-info btn-sm" 
+                                value="dept. names" 
+                                onclick="document.getElementById('qryDeptValidation').innerHTML = sessionStorage.getItem(qryDept.value)">
+                                Dept. Name
+                        </button> 
                       </div>
+                      <div id="qryDeptValidation" class="bg-info text-white"></div>                      
                       <div class="form-check form-check-inline col-md-3">
                         <label
                           class="form-check-label"
