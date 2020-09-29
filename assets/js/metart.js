@@ -279,17 +279,18 @@ function writeSelection() {
     qryBegin = document.forms["metArtCriteria"]["qryBegin"].value;        // dateBegin
     qryEnd = document.forms["metArtCriteria"]["qryEnd"].value;    
 
+    getDeptName(qryDept);  
+    
 /*
-    let criteriaString = `Selection: ${qryStr} Department: ${qryDept} highlighted: ${qryHighlight} on view: ${qryView}
-        artist or culture: ${qryCult} medium: ${qryMedium} has images: ${qryImages} geographic location: ${qryLoc} 
-        work date began: ${qryBegin} work date finished: ${qryEnd}`;
-    document.getElementById("metCriteria").innerHTML = "<p> " + criteriaString + "</p>";
+        So we have a set of selected criteria, but also unselected or blank criteria from the form
+        Need to strip out the blank selection qualifiers
 */
 
-    getDeptName(qryDept);  
-
     searchCrit1 = `departmentId=${qryDept}&q=${qryStr}`;
-    searchCrit2 = `isHighlight=${qryHighlight}&isOnView=${qryView}&hasImages=${qryImages}&geoLocation=${qryLoc}&dateBegin=${qryBegin}&dateEnd=${qryEnd}`;
+    var searchCrit2Orig = `isHighlight=${qryHighlight}&isOnView=${qryView}&artistOrCulture=${qryCult}&medium=${qryMedium}&hasImages=${qryImages}&geoLocation=${qryLoc}&dateBegin=${qryBegin}&dateEnd=${qryEnd}`;
+    searchCritArray = searchCrit2Orig.split("&");
+    searchCrit2 = stripBlankSelections(searchCritArray);
+    document.getElementById("metCriteria").innerHTML += `<p> Search criteria: ${searchCrit1}${searchCrit2} </p>`;
 
 /*
     Now display the button to allow user to get selected works....
@@ -297,3 +298,13 @@ function writeSelection() {
     document.getElementById("btnGetObjects").style.display = "block";
 
 };
+
+function stripBlankSelections(searchCritArray) {
+  var searchString = ""; 
+  for (let i in searchCritArray) {
+    if (searchCritArray[i].length != searchCritArray[i].lastIndexOf("=") + 1) {
+      searchString += "&" + searchCritArray[i];
+    }
+  }
+  return searchString;
+}
