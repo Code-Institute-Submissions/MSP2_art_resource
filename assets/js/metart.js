@@ -23,6 +23,8 @@ var qryLoc;          // geoLocation
 // must have both values for dateBegin and dateEnd queries:
 var qryBegin;        // dateBegin
 var qryEnd;          // dateEnd
+// Department array to hold id and name used by functions writeDepts,getDeptName,returnDeptName
+var depts = [];
 var deptName; //department Name
 var totalObjects;   // to capture the total number of objects listed on the Met's public collectsions
 
@@ -85,13 +87,11 @@ function getMetDept(cb) {
 };
 
 function writeDepts() {
-    getMetDept(function(item) {
-       var depts = [];
-       depts=item.departments;
-       depts.forEach(function(item) {
-                document.getElementById("metArtDept").innerHTML += item.departmentId+") "+item.displayName+" <br>";
-            });
+    document.getElementById("metArtDept").innerHTML = "";
+    depts.forEach(function (item) {
+      document.getElementById("metArtDept").innerHTML += item.departmentId + ") " + item.displayName + " <br>";
     });
+
 };
 
 function loadDepts() {
@@ -99,6 +99,7 @@ function loadDepts() {
     Using temporary store for department names
     Will clear when browser closed
 */
+    sessionStorage.clear();
     getMetDept(function (item) {
         depts = item.departments;
         depts.forEach(function(item){
@@ -112,9 +113,7 @@ function writeDeptName(data) {
 }
 
 function getDeptName(deptId) {
-    var depts = [];
     getMetDept(function(item) {
-        depts=item.departments;
         depts.forEach(function(item) {
               if ( item.departmentId == deptId ){
                   writeDeptName(item);
@@ -123,6 +122,19 @@ function getDeptName(deptId) {
     });
 }
 
+function returnDeptName(deptId) {
+    /*
+    depends upon populated  global array 'depts' to lookup name from id.
+    */
+    var deptName = "";
+    depts.forEach(function (item) {
+        if (item.departmentId == deptId) {
+            deptName = item.displayName;
+        }
+    });
+    alert("returnDeptName " + deptName);
+    return deptName;
+}
 
 /*
     Scripts to access API objects using their search resource
