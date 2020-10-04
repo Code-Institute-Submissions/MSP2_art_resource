@@ -66,13 +66,23 @@ header {
     font-size: 0.75em;
     letter-spacing: 0.5px;
 }
+
+#metArtSearch {
+    font-size: 0.75em;
+}
+
 /*--------------------------------------------Searched collection display */
 #metCriteria {
     font-size: 0.75em;
+    font-style: italic;
+    text-align: center;
 }
 #metArt {
     font-size: 0.5em;
     margin-left: 5px;
+}
+#metArtTotal {
+    text-align: center;
 }
 
 /*--------------------------------------------Footer   */
