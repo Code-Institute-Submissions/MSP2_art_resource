@@ -289,7 +289,7 @@ function writeObjectDetails(obj_ID) {
         objCreditLine = item.creditLine;
         document.getElementById("metArt").innerHTML += obj_ID + ": "+ objTitle +" <br>";
         document.getElementById("metArt").innerHTML += objName +" <br>";
-        document.getElementById("metArt").innerHTML += "<img src="+ objPrimaryImage +" alt="+objTitle+"\"> <br>";
+        document.getElementById("metArt").innerHTML += "<img class=\"img-fluid\" src="+ objPrimaryImage +" alt="+objTitle+"\"> <br>";
         document.getElementById("metArt").innerHTML += "artist: " + objArtistDisplayName +" <br>";
         if (objArtistBegin.length > 0 ) {
             document.getElementById("metArt").innerHTML += "artist birth: " + objArtistBegin +" death: "+objArtistEnd+ "<br>";
