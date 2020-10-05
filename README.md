@@ -16,13 +16,15 @@ To provide an easier-to-use application for the Museum's provided API portal of 
 
 ### Scope
 By the nature of art collections the core will be display of images of the collection, corresponding to the functionality provided by the Application Programming Interface (API).
-The museum's departments can be listed using their API [Departments endpoint](https://collectionapi.metmuseum.org/public/collection/v1/departments)'.
+The museum's departments can be listed using their API [Departments endpoint](https://collectionapi.metmuseum.org/public/collection/v1/departments).
 The search criteria used by the API search [Search endpoint](https://collectionapi.metmuseum.org/public/collection/v1/search).
 The found art work details are then displayed on screen, using [Object endpoint](https://collectionapi.metmuseum.org/public/collection/v1/objects/[objectID]).
 
 ### Structure
 The information structure is led by the Museum's API data structures.
-A class of found works are identified by their individual 'object id's' and so can be stored as such for further display.
+A class of found works are identified by their individual, key field 'object id's' and so can be stored as such for further display.
+The information structure of these objects have been documented by the Museums API on their [page](https://metmuseum.github.io/). 
+
 
 ### Skeleton
 There will be one page containing two modal forms.
@@ -38,12 +40,6 @@ A neutral, pastel blue has been selected as a uniform background colour for the 
 The typeface has been chosen, font family 'Roboto' with backup font family of 'Arial'.
 
 
-
-
-
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal.
-
 This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 
 ## Features
@@ -55,20 +51,20 @@ An application Programming Interface specifically for documenting New York's vas
 [Metropolitan Museum of Art API](https://metmuseum.github.io/)
  
 ### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
-- ...
+- Feature 1 - allows users to see the museum's current departmental structure.
+- Feature 2 - allows interested viewers to select areas of interest from the Museum's collection.
+- Feature 3 - displays the selected works, if found, 5 works at a time.
 
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
-
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
 
 ### Features Left to Implement
-- Another feature idea
+- Department names to be selected rather than their numeric 'departmentId' within the search form. The corresponding departmentId will be looked up in the background and used for the search within the API's endpoint
+- A facility to download or print found works and their details.
 
 ## Technologies Used
 
 In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
 
+- [Bootstrap](https://getbootstrap.com/) to provide a mobile-first framework for the site.
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to simplify DOM manipulation.
 
