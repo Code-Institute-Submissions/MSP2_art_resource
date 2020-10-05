@@ -27,6 +27,8 @@ var qryEnd;          // dateEnd
 var depts = [];
 var deptName; //department Name
 var totalObjects;   // to capture the total number of objects listed on the Met's public collectsions
+var displayObjects = [];
+let currentPg = 1;
 
 /*
     Initialising popovers to help with selection criteria validation, UX
@@ -40,6 +42,17 @@ $(document).ready(function(){
     loadDepts();
 });
 
+/* Object DisplayObject and its constructor */
+class DisplayObject {
+    constructor(artCount,metObjectId,pageCount) {
+        this.artCnt = artCount;
+        this.objectId = metObjectId;
+        this.pageCnt =pageCount;
+    }
+    /* methods */
+    get workId() { return this.objectId;}
+    get pageNo() { return this.pageCnt;}
+}
 
 /*
     Functions to get latest object total from API
@@ -178,6 +191,8 @@ function writeObjects() {
     var objects = [];
     var objectId;
     var totalInt;
+    var artCnt = 0; 
+    var pageCnt = 1;
 
    /*
         Clear down previous search results...
@@ -210,13 +225,31 @@ function writeObjects() {
             objects=item.objectIDs;
        
             for (objectId of objects) {
+                if (totalInt < 6) { 
                     writeObjectDetails(objectId);
-            };
-            generatePaginationButton();
-       }
+                    generatePaginationButton(pageCnt);
+                }
+                /*  Decided on 5 artworks per page, to save on memory issues... */    
+                else {
+                    artCnt++;
+                    if (artCnt < 6) {  
+                        writeObjectDetails(objectId);
+                        var thisArtWork = new DisplayObject(artCnt,objectId,pageCnt);
+                        displayObjects.push(thisArtWork);
+                    }
+                    else {
+                        if ( artCnt == 6) {pageCnt++};
+                        if ( artCnt % 5 == 0 ) { pageCnt++ };
+                        generatePaginationButton(pageCnt);
+                        var thisArtWork = new DisplayObject(artCnt,objectId,pageCnt);
+                        //document.getElementById("metDebug").innerHTML += `<br> ${thisArtWork.workId} , ${thisArtWork.pageNo}`; 
+                        displayObjects.push(thisArtWork);
+                    }    
+                };
+            }
+        };
     });
-};
-
+}
 /*
         Function to display individual art object details
 */
@@ -304,7 +337,7 @@ function writeSelection() {
     qryMedium = document.forms["metArtCriteria"]["qryMedium"].value;     // medium
     qryImages = document.forms["metArtCriteria"]["qryImages"].value;       // hasImages
     qryLoc = document.forms["metArtCriteria"]["qryLoc"].value;          // geoLocation
-// must have both values for dateBegin and dateEnd queries:
+    // must have both values for dateBegin and dateEnd queries:
     qryBegin = document.forms["metArtCriteria"]["qryBegin"].value;        // dateBegin
     qryEnd = document.forms["metArtCriteria"]["qryEnd"].value;    
 
@@ -338,14 +371,59 @@ function stripBlankSelections(searchCritArray) {
   return searchString;
 }
 
-function generatePaginationButton() {
+function generatePaginationButton(pageCnt) {
 
     document.getElementById("metPages").innerHTML = `<table><tr><td>`;
+    document.getElementById("metPages").innerHTML += `<button id="btnNext" onClick="writePreviousPage(${pageCnt})" class="btn btn-secondary btn-sm">Previous 5 artworks of ${pageCnt} pages</button>`;
+    document.getElementById("metPages").innerHTML += `</td></tr>`;
+
+    document.getElementById("metPages").innerHTML += `<tr><td>`;
+    document.getElementById("metPages").innerHTML += `<button id="btnNext" onClick="writeNextPage(${pageCnt})" class="btn btn-secondary btn-sm">Next 5 artworks of ${pageCnt} pages</button>`;
+    document.getElementById("metPages").innerHTML += `</td></tr>`;
+ 
+    document.getElementById("metPages").innerHTML += `<tr><td>`;
     document.getElementById("metPages").innerHTML += `<button id="btnNew" onClick="clickBtnNew()" class="btn btn-secondary btn-sm">New selection</button>`;
     document.getElementById("metPages").innerHTML += `</td></tr></table>`;
 
 }
 
+function writeNextPage(pageCnt) {
+    /*  Clear down any previous page results...  */
+    document.getElementById("metArt").innerHTML = "";
+    if ( currentPg < pageCnt) {
+        currentPg++;
+    }
+    var myWrk = {};
+    var myArr = Object.values(displayObjects);
+
+    /* unpacking the found art works */
+    for (let i in myArr) {
+        myWrk = myArr[i];
+        if ( myWrk.pageNo == currentPg ) {
+            //document.getElementById("metDebug").innerHTML += `<br> ${myWrk.workId}`;
+            writeObjectDetails(myWrk.workId);
+        }
+    }
+}
+
+function writePreviousPage(pageCnt) {
+    /*  Clear down any previous page results...  */
+    document.getElementById("metArt").innerHTML = "";
+    if ( currentPg > 1 ) {
+        currentPg--;
+    }
+    var myWrk = {};
+    var myArr = Object.values(displayObjects);
+    
+    /* unpacking the found art works */
+    for (let i in myArr) {
+        myWrk = myArr[i];
+        if ( myWrk.pageNo == currentPg ) {
+            //document.getElementById("metDebug").innerHTML += `<br> ${myWrk.workId}`;
+            writeObjectDetails(myWrk.workId);
+        }
+    }
+}
 
 function clickBtnNew () {
     /*    Clear down previous search results...  */
@@ -355,5 +433,7 @@ function clickBtnNew () {
     document.getElementById("metPages").innerHTML = "";
     /* allow user to make another selection */
     document.getElementById("btnGetCriteria").style.display = "block";
-
+    /* initialise variables holding old selections */
+    currentPg = 1;
+    displayObjects = [];
 }
