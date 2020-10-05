@@ -6,7 +6,40 @@ Using New York Metropolitan Museum of Art's JSON API of their collection as an i
  
 ## UX
  
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+User Stories:
+- as a member of the hosting site's art club, they will use page to access New York's Museum of Art's collection for reference.
+- as a general art-loving browser will be able to easily search the collection with appropriate parameters.
+- easily read details of the objects found will be displayed for reference.
+
+### Strategy
+To provide an easier-to-use application for the Museum's provided API portal of it's collections.
+
+### Scope
+By the nature of art collections the core will be display of images of the collection, corresponding to the functionality provided by the Application Programming Interface (API).
+The museum's departments can be listed using their API [Departments endpoint](https://collectionapi.metmuseum.org/public/collection/v1/departments)'.
+The search criteria used by the API search [Search endpoint](https://collectionapi.metmuseum.org/public/collection/v1/search).
+The found art work details are then displayed on screen, using [Object endpoint](https://collectionapi.metmuseum.org/public/collection/v1/objects/[objectID]).
+
+### Structure
+The information structure is led by the Museum's API data structures.
+A class of found works are identified by their individual 'object id's' and so can be stored as such for further display.
+
+### Skeleton
+There will be one page containing two modal forms.
+One will display the department list over the main page when needed, selected by a button.
+The other modal form prompts for search criteria to be set, again by a button.
+Meanwhile, on document load, a query has been raised to find the total objects currently recorded for the collection.
+This uses the API [Objects endpoint](https://collectionapi.metmuseum.org/public/collection/v1/objects)
+This total is displayed near the start of the page, to advise on careful selection by the user.
+Once a selection has been made, a button is displayed to show the works selected.
+
+### Surface
+A neutral, pastel blue has been selected as a uniform background colour for the main page. (#D9E6F3).
+The typeface has been chosen, font family 'Roboto' with backup font family of 'Arial'.
+
+
+
+
 
 In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
 - As a user type, I want to perform an action, so that I can achieve a goal.
