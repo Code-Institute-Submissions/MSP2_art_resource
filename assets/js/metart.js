@@ -177,6 +177,7 @@ function getMetObject(obj_ID, cb2) {
 function writeObjects() {
     var objects = [];
     var objectId;
+    var totalInt;
 
    /*
         Clear down previous search results...
@@ -191,12 +192,28 @@ function writeObjects() {
        var total_Found;
        total_Found = item.total;
        document.getElementById("metArt").innerHTML += "<p> Total found: "+total_Found+" </p>";
-       objects=item.objectIDs;
+       totalInt = parseInt(total_Found);
+        /*
+            If there are no objects found, no need to display get objects button
+        */
+       if (totalInt == 0) {
+            document.getElementById("btnGetObjects").style.display = "block";
+       }
+       else {
+            /* 
+                If there are objects found for the search crieria given
+                need to hide the selection button until after the objects have been displayed
+                just to simplify UX
+            */
+            document.getElementById("btnGetCriteria").style.display = "none";
+            document.getElementById("btnGetObjects").style.display = "block";
+            objects=item.objectIDs;
        
-       for (objectId of objects) {
-           writeObjectDetails(objectId);
-       };
-
+            for (objectId of objects) {
+                    writeObjectDetails(objectId);
+            };
+            generatePaginationButton();
+       }
     });
 };
 
@@ -319,4 +336,24 @@ function stripBlankSelections(searchCritArray) {
     }
   }
   return searchString;
+}
+
+function generatePaginationButton() {
+
+    document.getElementById("metPages").innerHTML = `<table><tr><td>`;
+    document.getElementById("metPages").innerHTML += `<button id="btnNew" onClick="clickBtnNew()" class="btn btn-secondary btn-sm">New selection</button>`;
+    document.getElementById("metPages").innerHTML += `</td></tr></table>`;
+
+}
+
+
+function clickBtnNew () {
+    /*    Clear down previous search results...  */
+    document.getElementById("metArt").innerHTML = "";
+    document.getElementById("metCriteria").innerHTML = "";
+    document.getElementById("btnGetObjects").style.display = "none";
+    document.getElementById("metPages").innerHTML = "";
+    /* allow user to make another selection */
+    document.getElementById("btnGetCriteria").style.display = "block";
+
 }
