@@ -374,11 +374,11 @@ function stripBlankSelections(searchCritArray) {
 function generatePaginationButton(pageCnt) {
 
     document.getElementById("metPages").innerHTML = `<table><tr><td>`;
-    document.getElementById("metPages").innerHTML += `<button id="btnNext" onClick="writePreviousPage(${pageCnt})" class="btn btn-secondary btn-sm">Previous 5 artworks of ${pageCnt} pages</button>`;
+    document.getElementById("metPages").innerHTML += `<button id="btnNext" onClick="writePreviousPage(${pageCnt})" class="btn btn-secondary btn-sm">Previous 5 artworks of <span class="badge badge-light">${pageCnt}</span> pages</button>`;
     document.getElementById("metPages").innerHTML += `</td></tr>`;
 
     document.getElementById("metPages").innerHTML += `<tr><td>`;
-    document.getElementById("metPages").innerHTML += `<button id="btnNext" onClick="writeNextPage(${pageCnt})" class="btn btn-secondary btn-sm">Next 5 artworks of ${pageCnt} pages</button>`;
+    document.getElementById("metPages").innerHTML += `<button id="btnNext" onClick="writeNextPage(${pageCnt})" class="btn btn-secondary btn-sm">Next 5 artworks of <span class="badge badge-light">${pageCnt}</span> pages</button>`;
     document.getElementById("metPages").innerHTML += `</td></tr>`;
  
     document.getElementById("metPages").innerHTML += `<tr><td>`;
@@ -386,11 +386,11 @@ function generatePaginationButton(pageCnt) {
     document.getElementById("metPages").innerHTML += `</td></tr></table>`;
 
     document.getElementById("metPagesTop").innerHTML = `<table><tr><td>`;
-    document.getElementById("metPagesTop").innerHTML += `<button id="btnNext" onClick="writePreviousPage(${pageCnt})" class="btn btn-secondary btn-sm">Previous 5 artworks of ${pageCnt} pages</button>`;
+    document.getElementById("metPagesTop").innerHTML += `<button id="btnNext" onClick="writePreviousPage(${pageCnt})" class="btn btn-secondary btn-sm">Previous 5 artworks of <span class="badge badge-light">${pageCnt}</span> pages</button>`;
     document.getElementById("metPagesTop").innerHTML += `</td></tr>`;
 
     document.getElementById("metPagesTop").innerHTML += `<tr><td>`;
-    document.getElementById("metPagesTop").innerHTML += `<button id="btnNext" onClick="writeNextPage(${pageCnt})" class="btn btn-secondary btn-sm">Next 5 artworks of ${pageCnt} pages</button>`;
+    document.getElementById("metPagesTop").innerHTML += `<button id="btnNext" onClick="writeNextPage(${pageCnt})" class="btn btn-secondary btn-sm">Next 5 artworks of <span class="badge badge-light">${pageCnt}</span> pages</button>`;
     document.getElementById("metPagesTop").innerHTML += `</td></tr>`;
  
     document.getElementById("metPagesTop").innerHTML += `<tr><td>`;
