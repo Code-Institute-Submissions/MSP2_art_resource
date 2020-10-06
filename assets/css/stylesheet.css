@@ -80,6 +80,9 @@ header {
 #metArtFoundTotal {
     text-align: center;
 }
+#metPageCount{
+    text-align: center;
+}
 #metArt {
     font-size: 0.5em;
     margin-left: 5px;

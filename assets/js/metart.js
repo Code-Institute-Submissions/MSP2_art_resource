@@ -405,6 +405,9 @@ function writeNextPage(pageCnt) {
     if ( currentPg < pageCnt) {
         currentPg++;
     }
+    /* writing current Page number to screen */
+    document.getElementById("metPageCount").innerHTML = `Page: ${currentPg}`;
+
     var myWrk = {};
     var myArr = Object.values(displayObjects);
 
@@ -424,6 +427,10 @@ function writePreviousPage(pageCnt) {
     if ( currentPg > 1 ) {
         currentPg--;
     }
+
+    /* writing current Page number to screen */
+    document.getElementById("metPageCount").innerHTML = `Page: ${currentPg}`;
+
     var myWrk = {};
     var myArr = Object.values(displayObjects);
     
@@ -431,7 +438,6 @@ function writePreviousPage(pageCnt) {
     for (let i in myArr) {
         myWrk = myArr[i];
         if ( myWrk.pageNo == currentPg ) {
-            //document.getElementById("metDebug").innerHTML += `<br> ${myWrk.workId}`;
             writeObjectDetails(myWrk.workId);
         }
     }
