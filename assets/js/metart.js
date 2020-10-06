@@ -238,8 +238,7 @@ function writeObjects() {
                         displayObjects.push(thisArtWork);
                     }
                     else {
-                        if ( artCnt == 6) {pageCnt++};
-                        if ( artCnt % 5 == 0 ) { pageCnt++ };
+                        if ( artCnt % 5 == 1 ) { pageCnt++ };
                         generatePaginationButton(pageCnt);
                         var thisArtWork = new DisplayObject(artCnt,objectId,pageCnt);
                         //document.getElementById("metDebug").innerHTML += `<br> ${thisArtWork.workId} , ${thisArtWork.pageNo}`; 
