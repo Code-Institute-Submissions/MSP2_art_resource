@@ -206,7 +206,7 @@ function writeObjects() {
     getMetSearch(function(item) {
        var total_Found;
        total_Found = item.total;
-       document.getElementById("metArt").innerHTML += "<p> Total found: "+total_Found+" </p>";
+       document.getElementById("metArtFoundTotal").innerHTML += "<p> Total found: "+total_Found+" </p>";
        totalInt = parseInt(total_Found);
         /*
             If there are no objects found, no need to display get objects button
@@ -429,6 +429,7 @@ function clickBtnNew () {
     /*    Clear down previous search results...  */
     document.getElementById("metArt").innerHTML = "";
     document.getElementById("metCriteria").innerHTML = "";
+    document.getElementById("metArtFoundTotal").innerHTML = "";
     document.getElementById("btnGetObjects").style.display = "none";
     document.getElementById("metPages").innerHTML = "";
     /* allow user to make another selection */
