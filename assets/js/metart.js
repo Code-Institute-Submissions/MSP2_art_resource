@@ -450,6 +450,7 @@ function clickBtnNew () {
     document.getElementById("metArtFoundTotal").innerHTML = "";
     document.getElementById("btnGetObjects").style.display = "none";
     document.getElementById("metPagesTop").innerHTML = "";
+    document.getElementById("metPageCount").innerHTML = "";
     document.getElementById("metPages").innerHTML = "";
     /* allow user to make another selection */
     document.getElementById("btnGetCriteria").style.display = "block";
