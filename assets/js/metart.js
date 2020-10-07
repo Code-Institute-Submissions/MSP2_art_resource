@@ -76,7 +76,7 @@ function getTotalObjects(cb) {
 function totalCollection() {
   getTotalObjects(function (item) {
     totalObjects = item.total;
-    document.getElementById("metArtTotal").innerHTML = `There is a total of ${totalObjects} recorded objects in the Met's collection.`;
+    document.getElementById("metArtTotal").innerHTML = `There are ${totalObjects} recorded objects in the Met's collection.`;
     return totalObjects;
   });
 }
@@ -322,6 +322,7 @@ function getSelection() {
     $(document).ready(function(){
         $("#searchBtn").on("click",function() {
             document.getElementById("metCriteria").innerHTML = "";
+            document.getElementById("metArtFoundTotal").innerHTML = "";
             writeSelection();
         });
     });  
@@ -381,7 +382,7 @@ function generatePaginationButton(pageCnt) {
     document.getElementById("metPages").innerHTML += `</td></tr>`;
  
     document.getElementById("metPages").innerHTML += `<tr><td>`;
-    document.getElementById("metPages").innerHTML += `<button id="btnNew" onClick="clickBtnNew()" class="btn btn-secondary btn-sm">New selection</button>`;
+    document.getElementById("metPages").innerHTML += `<button id="btnNew" onClick="clickBtnNew()" class="btn btn-warning btn-sm">New selection</button>`;
     document.getElementById("metPages").innerHTML += `</td></tr></table>`;
 
     document.getElementById("metPagesTop").innerHTML = `<table><tr><td>`;
