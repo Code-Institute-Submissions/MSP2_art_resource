@@ -53,7 +53,7 @@ Using [Am I Responsive](http://ami.responsivedesign.is/)
 
 At first the search results looked OK, but wider viewports could utilise the right hand side for the artwork's details, whilst the left hand side is left for the image(s).
 
-
+![Found objects responsive](../images/project_screenshots/Testing_responsive_2020-10-07.jpg)
 
 Testing different screen sizes:
 | Chrome's Inspect emulator           | width  | breakpoint |
