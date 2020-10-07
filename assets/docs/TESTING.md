@@ -47,6 +47,12 @@ Proposing to intercept blank search terms on form and replace with empty quotes.
 
 No success message as no valid action on submit. Method will be "POST" as there is personal information.
 
+### Responsiveness on search results
+
+Using [Am I Responsive](http://ami.responsivedesign.is/)
+
+At first the search results looked OK, but wider viewports could utilise the right hand side for the artwork's details, whilst the left hand side is left for the image(s).
+
 
 
 Testing different screen sizes:
