@@ -19,7 +19,8 @@ For the given criteria both give a total of 13 objects found in the Metropolitan
 Unfortunately found that when reversing the order of the criteria in the API call, I received only one object returned.
 ![Museum API reversed order search](../images/project_screenshots/Testing_searchAPIanomaly.jpg)
 
-Sent email querying this to the site's given email address: openaccess@metmuseum.org, on September 22nd 2020.
+Added issue #36 on 7th October to API's Github and given email address: openaccess@metmuseum.org, on September 22nd 2020.
+![Issue 36](../images/project_screenshots/API_Issue_36.jpg)
 
 3. Check that a blank search term works.
 
@@ -65,7 +66,5 @@ Testing different screen sizes:
 | iPad Pro:                           | 1024px | lg         |
 | Laptop with MDPI screen             | 1280px | xl         |
 
-Had a separate Kindle Fire to see responsiveness on all pages of changes from landscape to portrait views.
-Landscape had button link navigation whilst portrait had 'hamburger' menu drop downs.
 
 ### Peer review and feedback
