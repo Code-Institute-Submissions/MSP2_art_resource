@@ -356,28 +356,28 @@ function writeObjectDetails(obj_ID) {
         document.getElementById("metArt").innerHTML += obj_ID + ": "+ objTitle +" <br>";
         document.getElementById("metArt").innerHTML += objName +" <br>";
         document.getElementById("metArt").innerHTML += "<img class=\"img-fluid\" src="+ objPrimaryImage +" alt="+objTitle+"\"> <br>";
-        document.getElementById("metArt").innerHTML += "artist: " + objArtistDisplayName +" <br>";
+        document.getElementById("metArt").innerHTML += "Artist: " + objArtistDisplayName +" <br>";
         if (objArtistBegin.length > 0 ) {
-            document.getElementById("metArt").innerHTML += "artist birth: " + objArtistBegin +" death: "+objArtistEnd+ "<br>";
+            document.getElementById("metArt").innerHTML += "Artist's birth: " + objArtistBegin +" and death: "+objArtistEnd+ "<br>";
         }
-        document.getElementById("metArt").innerHTML += "medium: " + objMedium +" <br>";
-        document.getElementById("metArt").innerHTML += "department: " + objDept +" <br>";
+        document.getElementById("metArt").innerHTML += "Medium: " + objMedium +" <br>";
+        document.getElementById("metArt").innerHTML += "Department: " + objDept +" <br>";
         if (objCulture.length > 0) {
-            document.getElementById("metArt").innerHTML += "culture: " + objCulture +" <br>";
+            document.getElementById("metArt").innerHTML += "Culture: " + objCulture +" <br>";
         }
         if (objPeriod.length > 0){
-            document.getElementById("metArt").innerHTML += "period: " + objPeriod +" <br>";
+            document.getElementById("metArt").innerHTML += "Period: " + objPeriod +" <br>";
         }
         if (objDynasty.length > 0){
-            document.getElementById("metArt").innerHTML += "dynasty: " + objDynasty +" <br>";
+            document.getElementById("metArt").innerHTML += "Dynasty: " + objDynasty +" <br>";
         }
         if (objReign.length > 0){
-            document.getElementById("metArt").innerHTML += "reign: " + objReign +" <br>";
+            document.getElementById("metArt").innerHTML += "Reign: " + objReign +" <br>";
         }
         if (objDimensions.length > 0){
-            document.getElementById("metArt").innerHTML += "artwork dimensions: " + objDimensions +" <br>";
+            document.getElementById("metArt").innerHTML += "Artwork dimensions: " + objDimensions +" <br>";
         }        
-        document.getElementById("metArt").innerHTML += "object begin date: " + objBegin + " object end date: "+ objEnd + " <br>";
+        document.getElementById("metArt").innerHTML += "Artwork began: " + objBegin + " artwork finished: "+ objEnd + " <br>";
         if (objCreditLine.length > 0){
             document.getElementById("metArt").innerHTML += "Origin and year acquired: " + objCreditLine +" <br>";
         }
@@ -387,7 +387,7 @@ function writeObjectDetails(obj_ID) {
         /*  blanking out additional images for the moment...another window? */
         if (objAdditionalImages.length > 0) {
             for ( let i in objAdditionalImages ) {
-                document.getElementById("metArt").innerHTML += `Additional images: <img class="img-fluid" src="${objAdditionalImages[i]}" width="50" height="auto" alt="add image"> <br>`;
+                document.getElementById("metArt").innerHTML += `Additional images: <img class="img-fluid" src="${objAdditionalImages[i]}" width="50" height="auto" alt="additional image"> <br>`;
             };
         };
     
@@ -399,6 +399,10 @@ function writeObjectDetails(obj_ID) {
         if (objWiki.length > 0 ) {
             document.getElementById("metArt").innerHTML += `WIKIData: <a href="${objWiki}" target="_blank" title="WIKIData link">WIKI link</a>  <br>`;
         } ;
+
+        if (objArtistDisplayBio.length > 0 ){
+             document.getElementById("metArt").innerHTML += `Artist Biography: ${objArtistDisplayBio} `;
+        }
 
         if (objPortfolio.length > 0 ) {
             document.getElementById("metArt").innerHTML += `Portfolio: ${objPortfolio} <br>`;
@@ -428,10 +432,10 @@ function writeObjectDetails(obj_ID) {
         if ( objClassification.length > 0 ) { document.getElementById("metArt").innerHTML += `Classification: ${objClassification} <br>`;};
 
          if (objLinkResource.length > 0){ 
-             document.getElementById("metArt").innerHTML +=`"Museum.org page: <a href="${objLinkResource}" target="_blank" title="Website page">Website page</a><br>`;
+             document.getElementById("metArt").innerHTML +=`"Museum web page: <a href="${objLinkResource}" target="_blank" title="Website page">Website page</a><br>`;
         }
          if (objObjectURL.length > 0){  
-            document.getElementById("metArt").innerHTML +=`Museum.org page: <a href="${objObjectURL}" target="_blank" title="Website page">Website page</a><br>`;
+            document.getElementById("metArt").innerHTML +=`Museum web page: <a href="${objObjectURL}" target="_blank" title="Website page">Website page</a><br>`;
         }
          if (objGalleryNumber.length > 0){ 
              document.getElementById("metArt").innerHTML +="Gallery Number "+objGalleryNumber+" <br>";
