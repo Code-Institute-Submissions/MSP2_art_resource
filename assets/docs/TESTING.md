@@ -38,7 +38,7 @@ Added issue #36 on 7th October to API's Github and given email address: openacce
 
 ### Form's search invoked with empty quotes 'q'
 
-![Forms Search with empty quotes q](../images/project_screenshots/Test_SearchFORM_dept21_q_enptyquotes.jpg)
+![Forms Search empty quotes q](../images/project_screenshots/Test_SearchFORM_q_emptyquotes.jpg)
 
 Although both API and Form searches match results, I believe that the returned result for blank search term 'q' to be misleading. 
 Proposing to intercept blank search terms on form and replace with empty quotes.
