@@ -65,6 +65,7 @@ An application Programming Interface specifically for documenting New York's vas
 In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
 
 - [Bootstrap](https://getbootstrap.com/) to provide a mobile-first framework for the site.
+- [Font Awesome](https://fontawesome.com/) to provide additional icons
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to simplify DOM manipulation.
 
