@@ -387,7 +387,7 @@ function writeObjectDetails(obj_ID) {
         /*  blanking out additional images for the moment...another window? */
         if (objAdditionalImages.length > 0) {
             for ( let i in objAdditionalImages ) {
-                document.getElementById("metArt").innerHTML += `Additional images: <img class="img-fluid" src="${objAdditionalImages[i]}" alt="add image"> <br>`;
+                document.getElementById("metArt").innerHTML += `Additional images: <img class="img-fluid" src="${objAdditionalImages[i]}" width="50" height="auto" alt="add image"> <br>`;
             };
         };
     
