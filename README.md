@@ -40,7 +40,9 @@ A neutral, pastel blue has been selected as a uniform background colour for the 
 The typeface has been chosen, font family 'Roboto' with backup font family of 'Arial'.
 
 
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+[Wireframes mockup](assets/docs/MSP2_art_resource.pdf)
+A PDF format version can be found within the project's Assets/docs subdirectory.
+
 
 ## Features
 
@@ -96,7 +98,7 @@ If this section grows too long, you may want to split it off into a separate fil
 
 Developed on GitPod using git and GitHub.
 Selected Repository : mikedjgreen/MSP2_art_resource
-Generated from: https://github.com/Code-Institute-Org/gitpod-full-template
+Generated from:[Code Institute template]( https://github.com/Code-Institute-Org/gitpod-full-template)
 
 Deployment steps:
 - opened up GitHub
@@ -109,7 +111,7 @@ Deployment steps:
 - confirmed selected
 Now live on GitHub pages.
 
-To run this code on your local machine, you would go to my respository at https://github.com/mikedjgreen/MSP2_art_resource and on the home page on the right hand side just above all the files, you will see a green button that says, "Clone or download", this button will give you options to clone with HTTPS, open in desktop or download as a zip file.
+To run this code on your local machine, you would go to my repository at https://github.com/mikedjgreen/MSP2_art_resource and on the home page on the right hand side just above all the files, you will see a green button that says, "Clone or download", this button will give you options to clone with HTTPS, open in desktop or download as a zip file.
 To continue with cloning, you would:
 - Open Git Bash
 - Change the current working directory to the location where you want the cloned directory to be made.
