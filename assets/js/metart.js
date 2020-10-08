@@ -365,7 +365,10 @@ function stripBlankSelections(searchCritArray) {
   var searchString = ""; 
   for (let i in searchCritArray) {
     if (searchCritArray[i].length != searchCritArray[i].lastIndexOf("=") + 1) {
-      searchString += "&" + searchCritArray[i];
+        /* Radio buttons have 'blank' values returned, can ignore these */
+        if ( searchCritArray[i].lastIndexOf("blank") < 1 ) {
+            searchString += "&" + searchCritArray[i];
+        }     
     }
   }
   return searchString;
@@ -394,7 +397,7 @@ function generatePaginationButton(pageCnt) {
     document.getElementById("metPagesTop").innerHTML += `</td></tr>`;
  
     document.getElementById("metPagesTop").innerHTML += `<tr><td>`;
-    document.getElementById("metPagesTop").innerHTML += `<button id="btnNew" onClick="clickBtnNew()" class="btn btn-secondary btn-sm">New selection</button>`;
+    document.getElementById("metPagesTop").innerHTML += `<button id="btnNew" onClick="clickBtnNew()" class="btn btn-warning btn-sm">New selection</button>`;
     document.getElementById("metPagesTop").innerHTML += `</td></tr></table>`;
 
 }
