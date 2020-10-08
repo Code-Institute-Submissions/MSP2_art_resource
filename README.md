@@ -16,9 +16,9 @@ To provide an easier-to-use application for the Museum's provided API portal of 
 
 ### Scope
 By the nature of art collections the core will be display of images of the collection, corresponding to the functionality provided by the Application Programming Interface (API).
-The museum's departments can be listed using their API [Departments endpoint](https://collectionapi.metmuseum.org/public/collection/v1/departments).
-The search criteria used by the API search [Search endpoint](https://collectionapi.metmuseum.org/public/collection/v1/search).
-The found art work details are then displayed on screen, using [Object endpoint](https://collectionapi.metmuseum.org/public/collection/v1/objects/[objectID]).
+- The museum's departments can be listed using their API [Departments endpoint](https://collectionapi.metmuseum.org/public/collection/v1/departments).
+- The search criteria used by the API search [Search endpoint](https://collectionapi.metmuseum.org/public/collection/v1/search).
+- The found art work details are then displayed on screen, using [Object endpoint](https://collectionapi.metmuseum.org/public/collection/v1/objects/[objectID]).
 
 ### Structure
 The information structure is led by the Museum's API data structures.
@@ -94,16 +94,33 @@ If this section grows too long, you may want to split it off into a separate fil
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+Developed on GitPod using git and GitHub.
+Selected Repository : mikedjgreen/MSP2_art_resource
+Generated from: https://github.com/Code-Institute-Org/gitpod-full-template
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
+Deployment steps:
+- opened up GitHub
+- signed in
+- selected repository mikedjgreen/MSP1_art_club
+- navigated to repository
+- selected 'settings'
+- scrolled to GitHub pages area
+- selected 'Master Branch' from the source drop down menu
+- confirmed selected
+Now live on GitHub pages.
+
+To run this code on your local machine, you would go to my respository at https://github.com/mikedjgreen/MSP2_art_resource and on the home page on the right hand side just above all the files, you will see a green button that says, "Clone or download", this button will give you options to clone with HTTPS, open in desktop or download as a zip file.
+To continue with cloning, you would:
+- Open Git Bash
+- Change the current working directory to the location where you want the cloned directory to be made.
+- Type git clone, and then paste this URL: https://github.com/mikedjgreen/MSP2_art_resource.git Press Enter. Your local clone will be created.
+
+For more information about the above process; https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository
+
 
 The project is built to a master branch deployed to: 
 https://mikedjgreen.github.io/MSP2_art_resource/ .
-
+There is no separate git branch.
 
 ## Credits
 
