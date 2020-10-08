@@ -140,7 +140,7 @@
                     <div class="form-group">
                       <div class="form-check form-check-inline col-md-3">
                         <label class="form-check-label" for="queryString"
-                          >search term
+                          >Search term
                         </label>
                         <input
                           type="text"
@@ -163,16 +163,18 @@
                           data-trigger="hover"
                           data-placement="top"
                           title="Highlights are selected works of art from permanent collection"
-                          data-content="true or false"
-                          >is highlighted?
+                          data-content="true,false or blank"
+                          >Is highlighted?
                         </label>
-                        <input
-                          type="text"
-                          class="form-input"
-                          id="qryHighlight"
-                          name="qryHighlight"
-                          size="5"
-                        />
+                        <input type="radio" class="form-check-input" id="qryHighlightTrue"
+                          name="qryHighlight" value="true" />
+                        True
+                         <input type="radio" class="form-check-input" id="qryHighlightFalse"
+                          name="qryHighlight" value="false" />
+                        False
+                         <input type="radio" class="form-check-input" id="qryHighlightBlank"
+                          name="qryHighlight" value="blank" checked />
+                        Blank
                       </div>
                     </div>
                     <div class="form-group">  
@@ -215,16 +217,18 @@
                           data-trigger="hover"
                           data-placement="top"
                           title="Are on view in the museum"
-                          data-content="Either true or false"
-                          >is on view?
+                          data-content="True, false or blank"
+                          >Is on view?
                         </label>
-                        <input
-                          type="text"
-                          class="form-input"
-                          id="qryView"
-                          name="qryView"
-                          size="5"
-                        />
+                        <input type="radio" class="form-check-input" id="qryViewTrue"
+                          name="qryView" value="true" />
+                        True
+                         <input type="radio" class="form-check-input" id="qryViewFalse"
+                          name="qryView" value="false" />
+                        False
+                         <input type="radio" class="form-check-input" id="qryViewBlank"
+                          name="qryView" value="blank" checked />
+                        Blank
                       </div>
                     </div>
                     <div class="form-group">  
@@ -236,15 +240,18 @@
                           data-trigger="hover"
                           data-placement="top"
                           title="Searching against the artist name or culture field"
-                          data-content="Either true or false"
-                          >artist or culture?
+                          data-content="True, false or blank"
+                          >Artist or culture?
                         </label>
-                        <input
-                          type="text"
-                          class="form-input"
-                          id="qryCult"
-                          name="qryCult"
-                        />
+                        <input type="radio" class="form-check-input" id="qryCultTrue"
+                          name="qryCult" value="true" />
+                        True
+                         <input type="radio" class="form-check-input" id="qryCultFalse"
+                          name="qryCult" value="false" />
+                        False
+                         <input type="radio" class="form-check-input" id="qryCultBlank"
+                          name="qryCult" value="blank" checked />
+                        Blank
                       </div>
                     </div>
                     <div class="form-group">  
@@ -257,7 +264,7 @@
                           data-placement="top"
                           title="Returns objects of specified medium or type"
                           data-content="E.g.: 'Ceramics', 'Furniture', 'Paintings', 'Sculpture', 'Textiles', etc."
-                          >what medium?
+                          >What medium?
                         </label>
                         <input
                           type="text"
@@ -271,22 +278,24 @@
                       <div class="form-check form-check-inline col-md-3">
                         <label
                           class="form-check-label"
-                          for="qryImages"
+                          for="qryImagesTrue"
                           data-toggle="popover"
                           data-trigger="hover"
                           data-placement="top"
                           title="Images required"
-                          data-content="Either true or false"
-                          >has images?
+                          data-content="Either true,false or blank"
+                          >Has images?
+                        
+                        <input type="radio" class="form-check-input" id="qryImagesTrue"
+                          name="qryImages" value="true" checked />
+                        True
+                         <input type="radio" class="form-check-input" id="qryImagesFalse"
+                          name="qryImages" value="false" />
+                        False
+                         <input type="radio" class="form-check-input" id="qryImagesBlank"
+                          name="qryImages" value="blank" />
+                        Blank
                         </label>
-                        <input
-                          type="text"
-                          class="form-input"
-                          id="qryImages"
-                          name="qryImages"
-                          value="true"
-                          size="5"
-                        />
                       </div>
                     </div>
                     <div class="form-group">  
