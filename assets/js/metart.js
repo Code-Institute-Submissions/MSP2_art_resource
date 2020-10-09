@@ -122,7 +122,7 @@ function loadDepts() {
 }
 
 function writeDeptName(data) {
-    document.getElementById("metCriteria").innerHTML += " : "+ data.displayName + "</p>";
+    document.getElementById("metCriteria").innerHTML += " "+ data.displayName + "</p>";
 }
 
 function getDeptName(deptId) {
@@ -206,13 +206,14 @@ function writeObjects() {
     getMetSearch(function(item) {
        var total_Found;
        total_Found = item.total;
-       document.getElementById("metArtFoundTotal").innerHTML += "<p> Total found: "+total_Found+" </p>";
+       document.getElementById("metArtFoundTotal").innerHTML = "<p>Total found: "+total_Found+" </p>";
        totalInt = parseInt(total_Found);
         /*
             If there are no objects found, no need to display get objects button
         */
        if (totalInt == 0) {
-            document.getElementById("btnGetObjects").style.display = "block";
+           // document.getElementById("btnGetObjects").style.display = "block";
+           document.getElementById("metArtFoundTotal").innerHTML += "<p>Please make another selection.</p>"
        }
        else {
             /* 
@@ -220,8 +221,8 @@ function writeObjects() {
                 need to hide the selection button until after the objects have been displayed
                 just to simplify UX
             */
-            document.getElementById("btnGetCriteria").style.display = "none";
-            document.getElementById("btnGetObjects").style.display = "block";
+            //document.getElementById("btnGetCriteria").style.display = "none";
+            //document.getElementById("btnGetObjects").style.display = "block";
             objects=item.objectIDs;
        
             for (objectId of objects) {
@@ -485,8 +486,13 @@ function writeSelection() {
 
 /*
     Now display the button to allow user to get selected works....
-*/
+
     document.getElementById("btnGetObjects").style.display = "block";
+*/
+/*
+    Selection criteria captured, now display objects found.
+*/    
+    writeObjects();
 
 };
 
@@ -580,7 +586,7 @@ function clickBtnNew () {
     document.getElementById("metArt").innerHTML = "";
     document.getElementById("metCriteria").innerHTML = "";
     document.getElementById("metArtFoundTotal").innerHTML = "";
-    document.getElementById("btnGetObjects").style.display = "none";
+    //document.getElementById("btnGetObjects").style.display = "none";
     document.getElementById("metPagesTop").innerHTML = "";
     document.getElementById("metPageCount").innerHTML = "";
     document.getElementById("metPages").innerHTML = "";
