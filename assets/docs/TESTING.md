@@ -43,6 +43,22 @@ Added issue #36 on 7th October to API's Github and given email address: openacce
 Although both API and Form searches match results, I believe that the returned result for blank search term 'q' to be misleading. 
 Proposing to intercept blank search terms on form and replace with empty quotes.
 
+### Testing enhancement. Selection on department name rather than department id.
+
+Incorporated a drop down selection list of department names rather than numeric department identifiers within the selection criteria form.
+Testing that the department name selected can be easily converted back to it's identifier for the API search endpoint.
+
+![Selection form's department name](../images/project_screenshots/Test_Select_Department_20201010.jpg)
+
+![Selection form's department (11)](../images/project_screenshots/Test_Department_selection_20201010.jpg)
+
+![Result of a department name search](../images/project_screenshots/Test_Department_selection_result_20201010.jpg)
+
+Comparing with API's search using same search parameters
+![Result of API department id search](../images/project_screenshots/Test_Department_API_search_20201010.jpg)
+
+Result totals match.
+
 
     4. Try to submit the form with all inputs valid and verify that a success message appears.
 
