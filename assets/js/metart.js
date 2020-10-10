@@ -10,11 +10,12 @@ const apiMetObject = "https://collectionapi.metmuseum.org/public/collection/v1/o
 
 */
 
-var searchCrit1 = "departmentID=";
-var searchCrit2 = "q=sunflower";
+var searchCrit1 = "";
+var searchCrit2 = "";
 var qryStr ="";  // q
 var qryHighlight;   // isHighlight
 var qryDept;        // departmentId
+var qryDeptName;    //Selection form now asks for name, not id.
 var qryView;        // isOnView
 var qryCult;        // artistOrCulture
 var qryMedium;     // medium
@@ -116,7 +117,8 @@ function loadDepts() {
     getMetDept(function (item) {
         depts = item.departments;
         depts.forEach(function(item){
-            sessionStorage.setItem(item.departmentId,item.displayName);
+            /* need a lookup from department name back to id */
+            sessionStorage.setItem(item.displayName,item.departmentId);
         })
     });
 }
@@ -147,6 +149,34 @@ function returnDeptName(deptId) {
     });
     alert("returnDeptName " + deptName);
     return deptName;
+}
+
+function returnDeptId(deptName) {
+    /*
+    depends upon the sessionStorage of key displayName against value of departmentId
+    */
+   return sessionStorage.getItem(deptName);
+}
+
+function loadSelDepts() {
+    var selHTML = "";
+    var selOptions = "";
+    
+    depts.forEach(function (dItem) {
+        /* need a lookup from department name back to id. */
+        selOptions += `     <option>${dItem.displayName}</option>`;
+    });
+    
+    selHTML = `      <label for="deptNameSel"`;
+    selHTML += ` data-toggle="popover" data-trigger="hover" data-placement="top" `; 
+    selHTML += ` title="Department Name"`;
+    selHTML += ` data-content="Select Met Museum Art Departments valid list">`;
+    selHTML += ` Select one Department: </label>`;
+    selHTML += `     <select class="form-control" id="deptNameSel"  required > `;
+    selHTML += selOptions;
+    selHTML += `     </select>`;
+
+    document.getElementById("selDept").innerHTML += selHTML;
 }
 
 /*
@@ -197,7 +227,8 @@ function writeObjects() {
    /*
         Clear down previous search results...
    */
-   document.getElementById("metArt").innerHTML = "";
+    document.getElementById("metArt").innerHTML = "";
+    document.getElementById("selDept").innerHTML = "";
    /*
         Now for current search results.....
    */
@@ -357,11 +388,15 @@ function writeObjectDetails(obj_ID) {
         document.getElementById("metArt").innerHTML += obj_ID + ": "+ objTitle +" <br>";
         document.getElementById("metArt").innerHTML += objName +" <br>";
         document.getElementById("metArt").innerHTML += "<img class=\"img-fluid\" src="+ objPrimaryImage +" alt="+objTitle+"\"> <br>";
-        document.getElementById("metArt").innerHTML += "Artist: " + objArtistDisplayName +" <br>";
+        if (objArtistDisplayName.length > 0) {
+            document.getElementById("metArt").innerHTML += "Artist: " + objArtistDisplayName +" <br>";
+        }
         if (objArtistBegin.length > 0 ) {
             document.getElementById("metArt").innerHTML += "Artist's birth: " + objArtistBegin +" and death: "+objArtistEnd+ "<br>";
         }
-        document.getElementById("metArt").innerHTML += "Medium: " + objMedium +" <br>";
+        if (objMedium.length > 0) {
+            document.getElementById("metArt").innerHTML += "Medium: " + objMedium +" <br>";
+        }
         document.getElementById("metArt").innerHTML += "Department: " + objDept +" <br>";
         if (objCulture.length > 0) {
             document.getElementById("metArt").innerHTML += "Culture: " + objCulture +" <br>";
@@ -385,17 +420,18 @@ function writeObjectDetails(obj_ID) {
 
 
 
-        /*  blanking out additional images for the moment...another window? */
+        /*  blanking out additional images for the moment...another window? 
         if (objAdditionalImages.length > 0) {
             for ( let i in objAdditionalImages ) {
                 document.getElementById("metArt").innerHTML += `Additional images: <img class="img-fluid" src="${objAdditionalImages[i]}" width="50" height="auto" alt="additional image"> <br>`;
             };
         };
-    
-
-        for ( let i in objConstituents ) {
+        */
+        if (objConstituents.length > 0 ) {
+            for ( let i in objConstituents ) {
             document.getElementById("metArt").innerHTML += `Constituents: ${objConstituents[i]} <br>`;
-         };
+            };
+        };
 
         if (objWiki.length > 0 ) {
             document.getElementById("metArt").innerHTML += `WIKIData: <a href="${objWiki}" target="_blank" title="WIKIData link">WIKI link</a>  <br>`;
@@ -460,7 +496,13 @@ function getSelection() {
 
 function writeSelection() {
     qryStr = document.forms["metArtCriteria"]["queryString"].value;
-    qryDept = document.forms["metArtCriteria"]["qryDept"].value;
+    /*    
+        Prototype search form asked for department id.
+        Updated search form, now asking, via drop-down selections, for department names
+        For API search endpoint, need to convert 'human' name back to Id
+    */   
+    qryDeptName = document.forms["metArtCriteria"]["deptNameSel"].value;
+    qryDept = returnDeptId(qryDeptName);
     qryHighlight = document.forms["metArtCriteria"]["qryHighlight"].value;
     qryView = document.forms["metArtCriteria"]["qryView"].value;        // isOnView
     qryCult = document.forms["metArtCriteria"]["qryCult"].value;       // artistOrCulture
