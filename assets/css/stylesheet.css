@@ -32,6 +32,12 @@ header {
     padding:0;
     text-align: center;
 }
+.header-strapline{
+    font-weight: 500;
+    font-size: 0.75em;
+    padding:0;
+    text-align: center;
+}
 
 /*-------------------------------------------- overriding bootstrap class properties */
 .container-fluid {
