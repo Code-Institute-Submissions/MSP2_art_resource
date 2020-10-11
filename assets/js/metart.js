@@ -96,9 +96,9 @@ function getMetDept(cb) {
             console.log("********  JSON response text "+JSON.parse(this.responseText));
         } else {
             console.log("******** state "+ this.readyState +" ******* status " +this.status);
-        };
+        }
     };
-};
+}
 
 function writeDepts() {
     document.getElementById("metArtDept").innerHTML = "";
@@ -106,7 +106,7 @@ function writeDepts() {
       document.getElementById("metArtDept").innerHTML += item.departmentId + ") " + item.displayName + " <br>";
     });
 
-};
+}
 
 function loadDepts() {
 /*  
@@ -119,7 +119,7 @@ function loadDepts() {
         depts.forEach(function(item){
             /* need a lookup from department name back to id */
             sessionStorage.setItem(item.displayName,item.departmentId);
-        })
+        });
     });
 }
 
@@ -191,7 +191,7 @@ function loadSelDepts() {
 
 function writeCriteria() {
     document.getElementById("metCriteria").innerHTML = "<p> Search criteria: "+searchCrit1+" "+searchCrit2+" </p>";
-};
+}
 
 function getMetSearch(cb1) {
     var xhr2 = new XMLHttpRequest();
@@ -200,9 +200,9 @@ function getMetSearch(cb1) {
     xhr2.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {  
             cb1(JSON.parse(this.responseText));
-        };
+        }
     };
-};
+}
 
 function getMetObject(obj_ID, cb2) {
  
@@ -213,9 +213,9 @@ function getMetObject(obj_ID, cb2) {
     xhr3.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {  
             cb2(JSON.parse(this.responseText));
-         };
+         }
     };
-};
+}
 
 function writeObjects() {
     var objects = [];
@@ -244,7 +244,7 @@ function writeObjects() {
         */
        if (totalInt == 0) {
            // document.getElementById("btnGetObjects").style.display = "block";
-           document.getElementById("metArtFoundTotal").innerHTML += "<p>Please make another selection.</p>"
+           document.getElementById("metArtFoundTotal").innerHTML += "<p>Please make another selection.</p>";
        }
        else {
             /* 
@@ -270,15 +270,15 @@ function writeObjects() {
                         displayObjects.push(thisArtWork);
                     }
                     else {
-                        if ( artCnt % 5 == 1 ) { pageCnt++ };
+                        if ( artCnt % 5 == 1 ) { pageCnt++ ; }
                         generatePaginationButton(pageCnt);
                         var thisArtWork = new DisplayObject(artCnt,objectId,pageCnt);
                         //document.getElementById("metDebug").innerHTML += `<br> ${thisArtWork.workId} , ${thisArtWork.pageNo}`; 
                         displayObjects.push(thisArtWork);
                     }    
-                };
+                }
             }
-        };
+        }
     });
 }
 /*
@@ -430,12 +430,12 @@ function writeObjectDetails(obj_ID) {
         if (objConstituents.length > 0 ) {
             for ( let i in objConstituents ) {
             document.getElementById("metArt").innerHTML += `Constituents: ${objConstituents[i]} <br>`;
-            };
-        };
+            }
+        }
 
         if (objWiki.length > 0 ) {
             document.getElementById("metArt").innerHTML += `WIKIData: <a href="${objWiki}" target="_blank" title="WIKIData link">WIKI link</a>  <br>`;
-        } ;
+        } 
 
         if (objArtistDisplayBio.length > 0 ){
              document.getElementById("metArt").innerHTML += `Artist Biography: ${objArtistDisplayBio} `;
@@ -443,30 +443,30 @@ function writeObjectDetails(obj_ID) {
 
         if (objPortfolio.length > 0 ) {
             document.getElementById("metArt").innerHTML += `Portfolio: ${objPortfolio} <br>`;
-        };
+        }
 
         if (objArtistRole.length > 0 ) {
             document.getElementById("metArt").innerHTML += `Artists role: ${objArtistRole} <br>`;
-        };
+        }
         if (objArtistPrefix.length > 0 ) {
             document.getElementById("metArt").innerHTML += `Prefix: ${objArtistPrefix} <br>`;
-        };
+        }
 
-        if ( objArtistSuffix.length > 0 ){ document.getElementById("metArt").innerHTML += `Suffix: ${objArtistSuffix} <br>`;};
-        if (objArtistNationality.length > 0 ) { document.getElementById("metArt").innerHTML += `Nationality: ${objArtistNationality} <br>`;};
-        if ( objArtistGender.length > 0 ) { document.getElementById("metArt").innerHTML += `Gender: ${objArtistGender} <br>`;};
-        if (objDate.length > 0 ) { document.getElementById("metArt").innerHTML += `Artwork date: ${objDate} <br>`;};
-        if ( objCity.length > 0 ) { document.getElementById("metArt").innerHTML += `City: ${objCity} <br>`;};
-        if ( objState.length > 0 ) { document.getElementById("metArt").innerHTML += `State: ${objState} <br>`;};
-        if (objCounty.length > 0 ) { document.getElementById("metArt").innerHTML += `County: ${objCounty} <br>`;};
-        if ( objCountry.length > 0 ) { document.getElementById("metArt").innerHTML += `Country: ${objCountry} <br>`;};
-        if ( objRegion.length > 0 ) { document.getElementById("metArt").innerHTML += `Region: ${objRegion} <br>`;};
-        if (objSubRegion.length > 0 ) { document.getElementById("metArt").innerHTML += `Subregion: ${objSubRegion} <br>`;};
-        if (objLocale.length > 0 ) { document.getElementById("metArt").innerHTML += `Locale: ${objLocale} <br>`;};
-        if (objLocus.length > 0 ) { document.getElementById("metArt").innerHTML += `Locus: ${objLocus} <br>`;};
-        if ( objExcavation.length > 0 ) { document.getElementById("metArt").innerHTML += `Excavation: ${objExcavation} <br>`;};
-        if ( objRiver.length > 0 ) { document.getElementById("metArtt").innerHTML += `River: ${objRiver} <br>`;};
-        if ( objClassification.length > 0 ) { document.getElementById("metArt").innerHTML += `Classification: ${objClassification} <br>`;};
+        if ( objArtistSuffix.length > 0 ){ document.getElementById("metArt").innerHTML += `Suffix: ${objArtistSuffix} <br>`;}
+        if (objArtistNationality.length > 0 ) { document.getElementById("metArt").innerHTML += `Nationality: ${objArtistNationality} <br>`;}
+        if ( objArtistGender.length > 0 ) { document.getElementById("metArt").innerHTML += `Gender: ${objArtistGender} <br>`;}
+        if (objDate.length > 0 ) { document.getElementById("metArt").innerHTML += `Artwork date: ${objDate} <br>`;}
+        if ( objCity.length > 0 ) { document.getElementById("metArt").innerHTML += `City: ${objCity} <br>`;}
+        if ( objState.length > 0 ) { document.getElementById("metArt").innerHTML += `State: ${objState} <br>`;}
+        if (objCounty.length > 0 ) { document.getElementById("metArt").innerHTML += `County: ${objCounty} <br>`;}
+        if ( objCountry.length > 0 ) { document.getElementById("metArt").innerHTML += `Country: ${objCountry} <br>`;}
+        if ( objRegion.length > 0 ) { document.getElementById("metArt").innerHTML += `Region: ${objRegion} <br>`;}
+        if (objSubRegion.length > 0 ) { document.getElementById("metArt").innerHTML += `Subregion: ${objSubRegion} <br>`;}
+        if (objLocale.length > 0 ) { document.getElementById("metArt").innerHTML += `Locale: ${objLocale} <br>`;}
+        if (objLocus.length > 0 ) { document.getElementById("metArt").innerHTML += `Locus: ${objLocus} <br>`;}
+        if ( objExcavation.length > 0 ) { document.getElementById("metArt").innerHTML += `Excavation: ${objExcavation} <br>`;}
+        if ( objRiver.length > 0 ) { document.getElementById("metArtt").innerHTML += `River: ${objRiver} <br>`;}
+        if ( objClassification.length > 0 ) { document.getElementById("metArt").innerHTML += `Classification: ${objClassification} <br>`;}
 
          if (objLinkResource.length > 0){ 
              document.getElementById("metArt").innerHTML +=`"Museum web page: <a href="${objLinkResource}" target="_blank" title="Website page">Website page</a><br>`;
