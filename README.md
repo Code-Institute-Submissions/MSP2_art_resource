@@ -1,6 +1,27 @@
+- [MSP2_art_resource](#msp2-art-resource)
+  * [UX](#ux)
+    + [Strategy](#strategy)
+    + [Scope](#scope)
+    + [Structure](#structure)
+    + [Skeleton](#skeleton)
+    + [Surface](#surface)
+  * [Features](#features)
+    + [Metropolitan Museum of Art's Collection API](#metropolitan-museum-of-art-s-collection-api)
+    + [Existing Features](#existing-features)
+    + [Features Left to Implement](#features-left-to-implement)
+  * [Technologies Used](#technologies-used)
+  * [Testing](#testing)
+  * [Deployment](#deployment)
+  * [Credits](#credits)
+    + [Content](#content)
+    + [Media](#media)
+    + [Acknowledgements](#acknowledgements)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 # MSP2_art_resource
 
-Milestone Project 2.
+[Code Institute's](https://codeinstitute.net/) Milestone Project 2.
 
 Using New York Metropolitan Museum of Art's JSON API of their collection as an illustrative art resource for an art club. Utilising the API's search tool to search out art objects for reference and education of all members and visitors to the art club.
  
@@ -46,8 +67,6 @@ A PDF format version can be found within the project's Assets/docs subdirectory.
 
 ## Features
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
-
 ### Metropolitan Museum of Art's Collection API
 An application Programming Interface specifically for documenting New York's vast collection af artifacts. 
 [Metropolitan Museum of Art API](https://metmuseum.github.io/)
@@ -56,20 +75,26 @@ An application Programming Interface specifically for documenting New York's vas
 - Feature 1 - allows users to see the museum's current departmental structure.
 - Feature 2 - allows interested viewers to select areas of interest from the Museum's collection.
 - Feature 3 - displays the selected works, if found, 5 works at a time.
-
+- Feature 4 - Department names to be selected rather than their numeric 'departmentId' within the search form. 
+              The corresponding departmentId will be looked up in the background and used for the search within the API's endpoint.
 
 ### Features Left to Implement
-- Department names to be selected rather than their numeric 'departmentId' within the search form. The corresponding departmentId will be looked up in the background and used for the search within the API's endpoint
+
 - A facility to download or print found works and their details.
+- Display a work's additional images as thumbnails, possibly on a carousel.
+- Incorporate the resource page into a wider art club website.
+- Sort found works on a selected object field.
 
 ## Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
+In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. 
+For each, provide its name, a link to its official site and a short sentence of why it was used.
 
-- [Bootstrap](https://getbootstrap.com/) to provide a mobile-first framework for the site.
+- [Bootstrap](https://getbootstrap.com/) to provide a mobile-first responsive framework for the site.
 - [Font Awesome](https://fontawesome.com/) to provide additional icons
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to simplify DOM manipulation.
+- [TOC for markdown](https://ecotrust-canada.github.io/markdown-toc/) to generate table of contents for README
 
 
 ## Testing
@@ -78,21 +103,6 @@ For the sake of brevity, see separate link for testing procedures :
 
 [Testing](assets/docs/TESTING.md)
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
-
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
-
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
 
 ## Deployment
 
