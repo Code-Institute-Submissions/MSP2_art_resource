@@ -100,9 +100,10 @@ For each, provide its name, a link to its official site and a short sentence of 
 ## Testing
 
 For the sake of brevity, see separate link for testing procedures :
-
 [Testing](assets/docs/TESTING.md)
 
+### CSS Validated
+[W3C Validator](http://jigsaw.w3.org/css-validator/validator?uri=https://mikedjgreen.github.io/MSP2_art_resource/assets/css/stylesheet.css).
 
 ## Deployment
 
