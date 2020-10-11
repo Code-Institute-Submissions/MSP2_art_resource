@@ -223,6 +223,7 @@ function writeObjects() {
     var totalInt;
     var artCnt = 0; 
     var pageCnt = 1;
+    var thisArtWork = {};
 
    /*
         Clear down previous search results...
@@ -266,13 +267,13 @@ function writeObjects() {
                     artCnt++;
                     if (artCnt < 6) {  
                         writeObjectDetails(objectId);
-                        var thisArtWork = new DisplayObject(artCnt,objectId,pageCnt);
+                        thisArtWork = new DisplayObject(artCnt,objectId,pageCnt);
                         displayObjects.push(thisArtWork);
                     }
                     else {
                         if ( artCnt % 5 == 1 ) { pageCnt++ ; }
                         generatePaginationButton(pageCnt);
-                        var thisArtWork = new DisplayObject(artCnt,objectId,pageCnt);
+                        thisArtWork = new DisplayObject(artCnt,objectId,pageCnt);
                         //document.getElementById("metDebug").innerHTML += `<br> ${thisArtWork.workId} , ${thisArtWork.pageNo}`; 
                         displayObjects.push(thisArtWork);
                     }    
@@ -482,7 +483,7 @@ function writeObjectDetails(obj_ID) {
         }        
         document.getElementById("metArt").innerHTML += "<hr>";
     });
-};
+}
 
 function getSelection() {
     $(document).ready(function(){
@@ -492,26 +493,28 @@ function getSelection() {
             writeSelection();
         });
     });  
-};
+}
 
 function writeSelection() {
-    qryStr = document.forms["metArtCriteria"]["queryString"].value;
+    //qryStr = document.forms["metArtCriteria"]["queryString"].value;
+    qryStr = document.getElementById("metArtCriteria").elements.namedItem("queryString").value;
     /*    
         Prototype search form asked for department id.
         Updated search form, now asking, via drop-down selections, for department names
         For API search endpoint, need to convert 'human' name back to Id
     */   
-    qryDeptName = document.forms["metArtCriteria"]["deptNameSel"].value;
+    //qryDeptName = document.forms["metArtCriteria"]["deptNameSel"].value;
+    qryDeptName = document.getElementById("metArtCriteria").elements.namedItem("deptNameSel").value;
     qryDept = returnDeptId(qryDeptName);
-    qryHighlight = document.forms["metArtCriteria"]["qryHighlight"].value;
-    qryView = document.forms["metArtCriteria"]["qryView"].value;        // isOnView
-    qryCult = document.forms["metArtCriteria"]["qryCult"].value;       // artistOrCulture
-    qryMedium = document.forms["metArtCriteria"]["qryMedium"].value;     // medium
-    qryImages = document.forms["metArtCriteria"]["qryImages"].value;       // hasImages
-    qryLoc = document.forms["metArtCriteria"]["qryLoc"].value;          // geoLocation
+    qryHighlight = document.getElementById("metArtCriteria").elements.namedItem("qryHighlight").value;
+    qryView = document.getElementById("metArtCriteria").elements.namedItem("qryView").value;        // isOnView
+    qryCult = document.getElementById("metArtCriteria").elements.namedItem("qryCult").value;       // artistOrCulture
+    qryMedium = document.getElementById("metArtCriteria").elements.namedItem("qryMedium").value;     // medium
+    qryImages = document.getElementById("metArtCriteria").elements.namedItem("qryImages").value;       // hasImages
+    qryLoc = document.getElementById("metArtCriteria").elements.namedItem("qryLoc").value;          // geoLocation
     // must have both values for dateBegin and dateEnd queries:
-    qryBegin = document.forms["metArtCriteria"]["qryBegin"].value;        // dateBegin
-    qryEnd = document.forms["metArtCriteria"]["qryEnd"].value;    
+    qryBegin = document.getElementById("metArtCriteria").elements.namedItem("qryBegin").value;        // dateBegin
+    qryEnd = document.getElementById("metArtCriteria").elements.namedItem("qryEnd").value;    
 
     getDeptName(qryDept);  
     
@@ -536,7 +539,7 @@ function writeSelection() {
 */    
     writeObjects();
 
-};
+}
 
 function stripBlankSelections(searchCritArray) {
   var searchString = ""; 
