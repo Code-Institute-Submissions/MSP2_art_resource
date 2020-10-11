@@ -102,6 +102,9 @@ For each, provide its name, a link to its official site and a short sentence of 
 For the sake of brevity, see separate link for testing procedures :
 [Testing](assets/docs/TESTING.md)
 
+### HTML Validated
+[W3.org Validator](https://validator.w3.org/nu/?doc=https://mikedjgreen.github.io/MSP2_art_resource/index.html).
+
 ### CSS Validated
 [W3C Validator](http://jigsaw.w3.org/css-validator/validator?uri=https://mikedjgreen.github.io/MSP2_art_resource/assets/css/stylesheet.css).
 
