@@ -23,7 +23,10 @@
 
 [Code Institute's](https://codeinstitute.net/) Milestone Project 2.
 
-Using New York Metropolitan Museum of Art's JSON API of their collection as an illustrative art resource for an art club. Utilising the API's search tool to search out art objects for reference and education of all members and visitors to the art club.
+Using New York Metropolitan Museum of Art's JSON API of their collection as an illustrative art resource for an art club. 
+Using their API's search tool to search out art objects for reference and education of all members and visitors to the art club.
+Additional validation of the search parameters are handled by a form to make the search more user friendly.
+The art works searched for are displayed in an easy to view fashion.
  
 ## UX
  
@@ -125,7 +128,7 @@ Deployment steps:
 - confirmed selected
 Now live on GitHub pages.
 
-To run this code on your local machine, you would go to my repository at https://github.com/mikedjgreen/MSP2_art_resource and on the home page on the right hand side just above all the files, you will see a green button that says, "Clone or download", this button will give you options to clone with HTTPS, open in desktop or download as a zip file.
+To run this code on your local machine, you would go to my repository at [My Repo](https://github.com/mikedjgreen/MSP2_art_resource) and on the home page on the right hand side just above all the files, you will see a green button that says, "Clone or download", this button will give you options to clone with HTTPS, open in desktop or download as a zip file.
 To continue with cloning, you would:
 - Open Git Bash
 - Change the current working directory to the location where you want the cloned directory to be made.
