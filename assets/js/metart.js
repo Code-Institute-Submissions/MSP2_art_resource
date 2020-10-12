@@ -94,9 +94,7 @@ function getMetDept(cb) {
         if (this.readyState == 4 && this.status == 200) {  
             cb(JSON.parse(this.responseText));
             console.log("********  JSON response text "+JSON.parse(this.responseText));
-        } else {
-            console.log("******** state "+ this.readyState +" ******* status " +this.status);
-        }
+        } 
     };
 }
 
@@ -241,7 +239,7 @@ function writeObjects() {
        document.getElementById("metArtFoundTotal").innerHTML = "<p>Total found: "+total_Found+" </p>";
        totalInt = parseInt(total_Found);
         /*
-            If there are no objects found, no need to display get objects button
+            If there are no objects found, no need to go further.
         */
        if (totalInt == 0) {
            document.getElementById("metArtFoundTotal").innerHTML += "<p>Please make another selection.</p>";
@@ -259,6 +257,15 @@ function writeObjects() {
                 if (totalInt < 6) { 
                     writeObjectDetails(objectId);
                     generatePaginationButton(pageCnt);
+                
+                    if ( currentPg < 2 ) {
+                        document.getElementById("btnPrev1").style.display = "none";
+                        document.getElementById("btnPrev2").style.display = "none";
+                    }    
+                    else {
+                            document.getElementById("btnPrev1").style.display = "block";
+                            document.getElementById("btnPrev2").style.display = "block";
+                    }
                 }
                 /*  Decided on 5 artworks per page, to save on memory issues... */    
                 else {
@@ -271,8 +278,15 @@ function writeObjects() {
                     else {
                         if ( artCnt % 5 == 1 ) { pageCnt++ ; }
                         generatePaginationButton(pageCnt);
+                    
+                        if ( currentPg < 2 ) {
+                            document.getElementById("btnPrev1").style.display = "none";
+                            document.getElementById("btnPrev2").style.display = "none";
+                        } else {
+                            document.getElementById("btnPrev1").style.display = "block";
+                            document.getElementById("btnPrev2").style.display = "block";
+                        }
                         thisArtWork = new DisplayObject(artCnt,objectId,pageCnt);
-                        //document.getElementById("metDebug").innerHTML += `<br> ${thisArtWork.workId} , ${thisArtWork.pageNo}`; 
                         displayObjects.push(thisArtWork);
                     }    
                 }
@@ -548,29 +562,29 @@ function stripBlankSelections(searchCritArray) {
 }
 
 function generatePaginationButton(pageCnt) {
-
+   
     document.getElementById("metPages").innerHTML = `<table><tr><td>`;
-    document.getElementById("metPages").innerHTML += `<button id="btnNext" onClick="writePreviousPage(${pageCnt})" class="btn btn-secondary btn-sm">Previous 5 artworks of <span class="badge badge-light">${pageCnt}</span> pages</button>`;
+    document.getElementById("metPages").innerHTML += `<button id="btnPrev1" onClick="writePreviousPage(${pageCnt})" class="btn btn-secondary btn-sm">Previous 5 artworks of <span class="badge badge-light">${pageCnt}</span> pages</button>`;
     document.getElementById("metPages").innerHTML += `</td></tr>`;
 
     document.getElementById("metPages").innerHTML += `<tr><td>`;
-    document.getElementById("metPages").innerHTML += `<button id="btnNext" onClick="writeNextPage(${pageCnt})" class="btn btn-secondary btn-sm">Next 5 artworks of <span class="badge badge-light">${pageCnt}</span> pages</button>`;
+    document.getElementById("metPages").innerHTML += `<button id="btnNext1" onClick="writeNextPage(${pageCnt})" class="btn btn-secondary btn-sm">Next 5 artworks of <span class="badge badge-light">${pageCnt}</span> pages</button>`;
     document.getElementById("metPages").innerHTML += `</td></tr>`;
  
     document.getElementById("metPages").innerHTML += `<tr><td>`;
-    document.getElementById("metPages").innerHTML += `<button id="btnNew" onClick="clickBtnNew()" class="btn btn-warning btn-sm">New selection</button>`;
+    document.getElementById("metPages").innerHTML += `<button id="btnNew1" onClick="clickBtnNew()" class="btn btn-warning btn-sm">New selection</button>`;
     document.getElementById("metPages").innerHTML += `</td></tr></table>`;
 
     document.getElementById("metPagesTop").innerHTML = `<table><tr><td>`;
-    document.getElementById("metPagesTop").innerHTML += `<button id="btnNext" onClick="writePreviousPage(${pageCnt})" class="btn btn-secondary btn-sm">Previous 5 artworks of <span class="badge badge-light">${pageCnt}</span> pages</button>`;
+    document.getElementById("metPagesTop").innerHTML += `<button id="btnPrev2" onClick="writePreviousPage(${pageCnt})" class="btn btn-secondary btn-sm">Previous 5 artworks of <span class="badge badge-light">${pageCnt}</span> pages</button>`;
     document.getElementById("metPagesTop").innerHTML += `</td></tr>`;
 
     document.getElementById("metPagesTop").innerHTML += `<tr><td>`;
-    document.getElementById("metPagesTop").innerHTML += `<button id="btnNext" onClick="writeNextPage(${pageCnt})" class="btn btn-secondary btn-sm">Next 5 artworks of <span class="badge badge-light">${pageCnt}</span> pages</button>`;
+    document.getElementById("metPagesTop").innerHTML += `<button id="btnNext2" onClick="writeNextPage(${pageCnt})" class="btn btn-secondary btn-sm">Next 5 artworks of <span class="badge badge-light">${pageCnt}</span> pages</button>`;
     document.getElementById("metPagesTop").innerHTML += `</td></tr>`;
  
     document.getElementById("metPagesTop").innerHTML += `<tr><td>`;
-    document.getElementById("metPagesTop").innerHTML += `<button id="btnNew" onClick="clickBtnNew()" class="btn btn-warning btn-sm">New selection</button>`;
+    document.getElementById("metPagesTop").innerHTML += `<button id="btnNew2" onClick="clickBtnNew()" class="btn btn-warning btn-sm">New selection</button>`;
     document.getElementById("metPagesTop").innerHTML += `</td></tr></table>`;
 
 }
@@ -583,6 +597,27 @@ function writeNextPage(pageCnt) {
     }
     /* writing current Page number to screen */
     document.getElementById("metPageCount").innerHTML = `Page: ${currentPg}`;
+ 
+    /* if current page is more than 1 then display Previous Page button */
+    if ( currentPg < 2 ) {
+        document.getElementById("btnPrev1").style.display = "none";
+        document.getElementById("btnPrev2").style.display = "none";
+    }    
+    else {
+        document.getElementById("btnPrev1").style.display = "block";
+        document.getElementById("btnPrev2").style.display = "block";
+    }
+    /* if current page reaches total page count for this search
+        don't display Next Page button */
+    if ( currentPg == pageCnt ) {
+        document.getElementById("btnNext1").style.display = "none";
+        document.getElementById("btnNext2").style.display = "none";
+    }    
+    else {
+        document.getElementById("btnNext1").style.display = "block";
+        document.getElementById("btnNext2").style.display = "block";
+    }    
+
 
     var myWrk = {};
     var myArr = Object.values(displayObjects);
@@ -591,7 +626,6 @@ function writeNextPage(pageCnt) {
     for (let i in myArr) {
         myWrk = myArr[i];
         if ( myWrk.pageNo == currentPg ) {
-            //document.getElementById("metDebug").innerHTML += `<br> ${myWrk.workId}`;
             writeObjectDetails(myWrk.workId);
         }
     }
@@ -606,6 +640,26 @@ function writePreviousPage(pageCnt) {
 
     /* writing current Page number to screen */
     document.getElementById("metPageCount").innerHTML = `Page: ${currentPg}`;
+    
+    /* if current page is less than 2 then don't display Previous Page button */
+    if ( currentPg < 2 ) {
+        document.getElementById("btnPrev1").style.display = "none";
+        document.getElementById("btnPrev2").style.display = "none";
+    }    
+    else {
+        document.getElementById("btnPrev1").style.display = "block";
+        document.getElementById("btnPrev2").style.display = "block";
+    }
+    /* if current page reaches total page count for this search
+        don't display Next Page button */
+    if ( currentPg == pageCnt ) {
+        document.getElementById("btnNext1").style.display = "none";
+        document.getElementById("btnNext2").style.display = "none";
+    }    
+    else {
+        document.getElementById("btnNext1").style.display = "block";
+        document.getElementById("btnNext2").style.display = "block";
+    }   
 
     var myWrk = {};
     var myArr = Object.values(displayObjects);
