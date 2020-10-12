@@ -61,12 +61,6 @@ header {
     background-color: #D9E6F3;
 }
 
-/*-----  Initially do not display button until selection of criteria is made */
-#btnGetObjects {
-    display: none;
-}
-
-
 /*--------------------------------------------Modal */
 #metArtDept {
     font-size: 0.75em;

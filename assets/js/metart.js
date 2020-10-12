@@ -244,7 +244,6 @@ function writeObjects() {
             If there are no objects found, no need to display get objects button
         */
        if (totalInt == 0) {
-           // document.getElementById("btnGetObjects").style.display = "block";
            document.getElementById("metArtFoundTotal").innerHTML += "<p>Please make another selection.</p>";
        }
        else {
@@ -254,7 +253,6 @@ function writeObjects() {
                 just to simplify UX
             */
             //document.getElementById("btnGetCriteria").style.display = "none";
-            //document.getElementById("btnGetObjects").style.display = "block";
             objects=item.objectIDs;
        
             for (objectId of objects) {
@@ -530,11 +528,6 @@ function writeSelection() {
     document.getElementById("metCriteria").innerHTML += `<p> Search criteria: ${searchCrit1}${searchCrit2} </p>`;
 
 /*
-    Now display the button to allow user to get selected works....
-
-    document.getElementById("btnGetObjects").style.display = "block";
-*/
-/*
     Selection criteria captured, now display objects found.
 */    
     writeObjects();
@@ -631,7 +624,6 @@ function clickBtnNew () {
     document.getElementById("metArt").innerHTML = "";
     document.getElementById("metCriteria").innerHTML = "";
     document.getElementById("metArtFoundTotal").innerHTML = "";
-    //document.getElementById("btnGetObjects").style.display = "none";
     document.getElementById("metPagesTop").innerHTML = "";
     document.getElementById("metPageCount").innerHTML = "";
     document.getElementById("metPages").innerHTML = "";
