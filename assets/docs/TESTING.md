@@ -15,7 +15,7 @@
 
 For the given criteria both give a total of 13 objects found in the Metropolitan Museum of Art's collection.
 
-### Anomaly found in API's search function.
+### **Anomaly found in API's search function.**
 Unfortunately found that when reversing the order of the criteria in the API call, I received only one object returned.
 ![Museum API reversed order search](../images/project_screenshots/Testing_searchAPIanomaly.jpg)
 

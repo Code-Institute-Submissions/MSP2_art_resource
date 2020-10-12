@@ -47,7 +47,7 @@ By the nature of art collections the core will be display of images of the colle
 ### Structure
 The information structure is led by the Museum's API data structures.
 A class of found works are identified by their individual, key field 'object id's' and so can be stored as such for further display.
-The information structure of these objects have been documented by the Museums API on their [page](https://metmuseum.github.io/). 
+The information structure of these objects have been documented by the Museum's API on their [page](https://metmuseum.github.io/#object). 
 
 
 ### Skeleton
@@ -87,6 +87,7 @@ An application Programming Interface specifically for documenting New York's vas
 - Display a work's additional images as thumbnails, possibly on a carousel.
 - Incorporate the resource page into a wider art club website.
 - Sort found works on a selected object field.
+- On larger viewports direct art work's details to the right of the title and image displayed.
 
 ## Technologies Used
 
@@ -94,7 +95,8 @@ In this section, you should mention all of the languages, frameworks, libraries,
 For each, provide its name, a link to its official site and a short sentence of why it was used.
 
 - [Bootstrap](https://getbootstrap.com/) to provide a mobile-first responsive framework for the site.
-- [Font Awesome](https://fontawesome.com/) to provide additional icons
+- [Font Awesome](https://fontawesome.com/) to provide additional icons.
+- [JavaScript](https://www.javascript.com/) to provide core API and DOM manipulation.
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to simplify DOM manipulation.
 - [TOC for markdown](https://ecotrust-canada.github.io/markdown-toc/) to generate table of contents for README
@@ -120,7 +122,7 @@ Generated from:[Code Institute template]( https://github.com/Code-Institute-Org/
 Deployment steps:
 - opened up GitHub
 - signed in
-- selected repository mikedjgreen/MSP1_art_club
+- selected repository mikedjgreen/MSP2_art_resource
 - navigated to repository
 - selected 'settings'
 - scrolled to GitHub pages area
@@ -132,13 +134,13 @@ To run this code on your local machine, you would go to my repository at [My Rep
 To continue with cloning, you would:
 - Open Git Bash
 - Change the current working directory to the location where you want the cloned directory to be made.
-- Type git clone, and then paste this URL: https://github.com/mikedjgreen/MSP2_art_resource.git Press Enter. Your local clone will be created.
+- Type git clone, and then paste this URL: [URL](https://github.com/mikedjgreen/MSP2_art_resource.git). Press Enter. Your local clone will be created.
 
-For more information about the above process; https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository
+For more information about the above process;[cloning a repository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository ).
 
 
 The project is built to a master branch deployed to: 
-https://mikedjgreen.github.io/MSP2_art_resource/ .
+[Master](https://mikedjgreen.github.io/MSP2_art_resource/) .
 There is no separate git branch.
 
 ## Credits
