@@ -21,7 +21,10 @@
     />
 
     <!--- Fontawesome for footer icons -->
-    <script src="https://kit.fontawesome.com/169cf7da54.js" crossorigin="anonymous"></script> 
+    <script
+      src="https://kit.fontawesome.com/169cf7da54.js"
+      crossorigin="anonymous"
+    ></script>
 
     <link
       rel="stylesheet"
@@ -37,53 +40,65 @@
   <body>
     <!--    Header -->
     <header class="heading">
-        <div class="jumbotron text-center row row-cols-2">
-        	<div class="col-1"></div>
-			<div class="col-10  header-text-sm">Metropolitan Museum of Art's Collection</div>
-            <div class="col-1"></div>
+      <div class="jumbotron text-center row row-cols-2">
+        <div class="col-1"></div>
+        <div class="col-10 header-text-sm">
+          Metropolitan Museum of Art's Collection
         </div>
-        <div class="header-strapline">
-    	    <div class="col-1"></div>
-			<div class="col-10">
-            <p>Access to the New York Metropolitan Museum of Art's own recorded collections by department.
-            Using the Met's own application programming interface.</p>
-            </div>
-            <div class="col-1"></div>
-
+        <div class="col-1"></div>
+      </div>
+      <div class="header-strapline">
+        <div class="col-1"></div>
+        <div class="col-10">
+          <p>
+            Access to the New York Metropolitan Museum of Art's own recorded
+            collections by department. Using the Met's own application
+            programming interface.
+          </p>
         </div>
+        <div class="col-1"></div>
+      </div>
     </header>
 
     <section class="container-fluid">
       <!-- The Buttons -->
       <div id="theButtons">
-        <table>
-          <tr>
-          <td>
+        <div class="row">
+          <div class="col">
             <button
-              type="button" id="btnGetDepts" class="btn btn-secondary btn-sm"
+              type="button"
+              id="btnGetDepts"
+              class="btn btn-secondary btn-sm"
               onclick="writeDepts()"
-              data-toggle="modal"     data-target="#deptModal">   
+              data-toggle="modal"
+              data-target="#deptModal"
+            >
               Get Met Art Departments
             </button>
-          </td>
-          <td>
+          </div>
+          <div class="col">
             <button
-              type="button" id="btnGetCriteria" class="btn btn-secondary btn-sm"
+              type="button"
+              id="btnGetCriteria"
+              class="btn btn-secondary btn-sm"
               onclick="getSelection();loadSelDepts()"
-              data-toggle="modal"  data-target="#searchModal">
+              data-toggle="modal"
+              data-target="#searchModal"
+            >
               Selection Criteria for Met Art
             </button>
-            </td>
-          </tr>
-        </table>
+          </div>
+        </div>
       </div>
 
-      <div id="metArtTotal" class="progress" style="height:20px">
-        <div class="progress-bar progress-bar-animated" style="width:50%;height:20px">
-        Getting total objects in collection...
+      <div id="metArtTotal" class="progress" style="height: 20px;">
+        <div
+          class="progress-bar progress-bar-animated"
+          style="width: 50%; height: 20px;"
+        >
+          Getting total objects in collection...
         </div>
-      </div> 
-
+      </div>
 
       <!-- The Department Modal -->
       <div class="modal" id="deptModal">
@@ -135,7 +150,11 @@
             <!-- Modal body -->
             <div class="modal-body">
               <div id="metArtSearch">
-                <form name="metArtCriteria" id="metArtCriteria" class="metArtCriteria, was-validated">
+                <form
+                  name="metArtCriteria"
+                  id="metArtCriteria"
+                  class="metArtCriteria, was-validated"
+                >
                   <fieldset>
                     <legend>Search Criteria</legend>
                     <div id="searchCautionary"></div>
@@ -153,10 +172,12 @@
                           required
                         />
                         <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <div class="invalid-feedback">
+                          Please fill out this field.
+                        </div>
                       </div>
                     </div>
-                    <div class="form-group">  
+                    <div class="form-group">
                       <div class="form-check form-check-inline col-md-3">
                         <label
                           class="form-check-label"
@@ -168,26 +189,43 @@
                           data-content="true,false or blank"
                           >Is highlighted?
                         </label>
-                        <input type="radio" class="form-check-input" id="qryHighlight"
-                          name="qryHighlight" value="true" />
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="qryHighlight"
+                          name="qryHighlight"
+                          value="true"
+                        />
                         True
-                         <input type="radio" class="form-check-input" id="qryHighlightFalse"
-                          name="qryHighlight" value="false" />
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="qryHighlightFalse"
+                          name="qryHighlight"
+                          value="false"
+                        />
                         False
-                         <input type="radio" class="form-check-input" id="qryHighlightBlank"
-                          name="qryHighlight" value="blank" checked />
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="qryHighlightBlank"
+                          name="qryHighlight"
+                          value="blank"
+                          checked
+                        />
                         Blank
                       </div>
                     </div>
 
                     <div class="form-group">
-                        <div id="selDept"></div>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
+                      <div id="selDept"></div>
+                      <div class="valid-feedback">Valid.</div>
+                      <div class="invalid-feedback">
+                        Please fill out this field.
+                      </div>
                     </div>
 
-
-                    <div class="form-group">                     
+                    <div class="form-group">
                       <div class="form-check form-check-inline col-md-3">
                         <label
                           class="form-check-label"
@@ -199,18 +237,34 @@
                           data-content="True, false or blank"
                           >Is on view?
                         </label>
-                        <input type="radio" class="form-check-input" id="qryView"
-                          name="qryView" value="true" />
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="qryView"
+                          name="qryView"
+                          value="true"
+                        />
                         True
-                         <input type="radio" class="form-check-input" id="qryViewFalse"
-                          name="qryView" value="false" />
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="qryViewFalse"
+                          name="qryView"
+                          value="false"
+                        />
                         False
-                         <input type="radio" class="form-check-input" id="qryViewBlank"
-                          name="qryView" value="blank" checked />
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="qryViewBlank"
+                          name="qryView"
+                          value="blank"
+                          checked
+                        />
                         Blank
                       </div>
                     </div>
-                    <div class="form-group">  
+                    <div class="form-group">
                       <div class="form-check form-check-inline col-md-3">
                         <label
                           class="form-check-label"
@@ -222,18 +276,34 @@
                           data-content="True, false or blank"
                           >Artist or culture?
                         </label>
-                        <input type="radio" class="form-check-input" id="qryCult"
-                          name="qryCult" value="true" />
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="qryCult"
+                          name="qryCult"
+                          value="true"
+                        />
                         True
-                         <input type="radio" class="form-check-input" id="qryCultFalse"
-                          name="qryCult" value="false" />
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="qryCultFalse"
+                          name="qryCult"
+                          value="false"
+                        />
                         False
-                         <input type="radio" class="form-check-input" id="qryCultBlank"
-                          name="qryCult" value="blank" checked />
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="qryCultBlank"
+                          name="qryCult"
+                          value="blank"
+                          checked
+                        />
                         Blank
                       </div>
                     </div>
-                    <div class="form-group">  
+                    <div class="form-group">
                       <div class="form-check form-check-inline col-md-3">
                         <label
                           class="form-check-label"
@@ -253,7 +323,7 @@
                         />
                       </div>
                     </div>
-                    <div class="form-group">  
+                    <div class="form-group">
                       <div class="form-check form-check-inline col-md-3">
                         <label
                           class="form-check-label"
@@ -264,19 +334,35 @@
                           title="Images required"
                           data-content="Either true,false or blank"
                           >Has images?
-                        </label>                        
-                        <input type="radio" class="form-check-input" id="qryImagesTrue"
-                          name="qryImages" value="true" checked />
+                        </label>
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="qryImagesTrue"
+                          name="qryImages"
+                          value="true"
+                          checked
+                        />
                         True
-                         <input type="radio" class="form-check-input" id="qryImagesFalse"
-                          name="qryImages" value="false" />
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="qryImagesFalse"
+                          name="qryImages"
+                          value="false"
+                        />
                         False
-                         <input type="radio" class="form-check-input" id="qryImagesBlank"
-                          name="qryImages" value="blank" />
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="qryImagesBlank"
+                          name="qryImages"
+                          value="blank"
+                        />
                         Blank
                       </div>
                     </div>
-                    <div class="form-group">  
+                    <div class="form-group">
                       <div class="form-check form-check-inline col-md-3">
                         <label
                           class="form-check-label"
@@ -296,7 +382,7 @@
                         />
                       </div>
                     </div>
-                    <div class="form-group">  
+                    <div class="form-group">
                       <div class="form-check form-check-inline col-md-3">
                         <label
                           class="form-check-label"
@@ -343,7 +429,7 @@
                     >
                       Search
                     </button>
-                    <input type="reset"/>
+                    <input type="reset" />
                   </fieldset>
                 </form>
               </div>
@@ -366,27 +452,33 @@
 
     <!--    Footer -->
     <footer class="container-fluid">
-    		<div id="footer-details" class="row">
-			<div class="col-sm-12">
-				<hr />
-				<ul class="list-inline social-links">
-					<li class="list-inline-item px-3">
-						<a target="_blank" href="https://www.facebook.com/metmuseum/"
-							title="Go to the Met's facebook page">
-							<i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
-							<span class="sr-only">Facebook</span>
-						</a>
-					</li>
-					<li class="list-inline-item px-3">
-						<a target="_blank" href="https://www.metmuseum.org/"
-							title="Go to the Met's website">
-							<i class="fas fa-palette fa-lg" aria-hidden="true"></i>
-							<span class="sr-only">Met website</span>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
+      <div id="footer-details" class="row">
+        <div class="col-sm-12">
+          <hr />
+          <ul class="list-inline social-links">
+            <li class="list-inline-item px-3">
+              <a
+                target="_blank"
+                href="https://www.facebook.com/metmuseum/"
+                title="Go to the Met's facebook page"
+              >
+                <i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
+                <span class="sr-only">Facebook</span>
+              </a>
+            </li>
+            <li class="list-inline-item px-3">
+              <a
+                target="_blank"
+                href="https://www.metmuseum.org/"
+                title="Go to the Met's website"
+              >
+                <i class="fas fa-palette fa-lg" aria-hidden="true"></i>
+                <span class="sr-only">Met website</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </footer>
     <!-- Bootstrap Javascript CDN  aria -->
 
