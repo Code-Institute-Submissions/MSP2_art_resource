@@ -174,7 +174,7 @@ function loadSelDepts() {
     selHTML += selOptions;
     selHTML += `     </select>`;
 
-    document.getElementById("selDept").innerHTML += selHTML;
+    document.getElementById("selDept").innerHTML = selHTML;
 }
 
 /*
