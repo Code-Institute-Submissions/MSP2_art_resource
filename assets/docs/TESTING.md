@@ -133,11 +133,18 @@ Testing different screen sizes:
 
 
 Nokia's viewport truncated total line:
+
 ![Intro Nokia](../images/project_screenshots/Test_Intro_20201013_nokia.jpg)
+
 Nexus:
+
 ![Intro Nexus](../images/project_screenshots/Test_Intro_20201013_nexus7.jpg)
+
 iPad:
+
 ![Intro iPad](../images/project_screenshots/Test_Intro_20201013_iPad.jpg)
+
 iPad Pro:
+
 ![Intro iPadPro](../images/project_screenshots/Test_Intro_20201013_iPadPro.jpg)
 
