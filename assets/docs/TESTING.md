@@ -72,6 +72,24 @@ Please note that the API does not return departments of id 2 nor 20.
 
 ![Department API](../images/project_screenshots/Test_Dept_%20Mode_20201013_API.jpg)
 
+
+**7. Check pagination of found works.**
+
+Search for more than one page (5 works) of art works.
+
+![Initial Top page](../images/project_screenshots/Test_Pages_%2020201013_top2.jpg)
+
+![Initial botton page](../images/project_screenshots/Test_Pages_%2020201013_bottom2.jpg)
+
+Next page
+![Top next page](../images/project_screenshots/Test_Pages_%2020201013_top2_next.jpg)
+
+![Bottom next page](../images/project_screenshots/Test_Pages_%2020201013_bottom2_next.jpg)
+Previous page
+![Top previous page](../images/project_screenshots/Test_Pages_%2020201013_top2_prev.jpg)
+
+![Bottom previous page](../images/project_screenshots/Test_Pages_%2020201013_bottom2_prev.jpg)
+
 ### Responsiveness on search results
 
 **Using [Am I Responsive](http://ami.responsivedesign.is/)**
