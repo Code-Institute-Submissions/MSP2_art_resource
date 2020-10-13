@@ -153,5 +153,6 @@ There is no separate git branch.
 
 ### Acknowledgements
 
-- I received inspiration for this project from [programmableweb](https://www.programmableweb.com/api-university) 
+- I received inspiration for this project from [programmableweb](https://www.programmableweb.com/api-university) especialy the article on art: [API art](https://www.programmableweb.com/news/14-most-popular-art-apis/brief/2020/07/19)
+
 - More technical help on javascript from [w3schools](https://www.w3schools.com/js/default.asp)
