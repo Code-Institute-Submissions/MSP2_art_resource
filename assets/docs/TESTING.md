@@ -64,6 +64,14 @@ Result totals match.
 
 No success message as no valid action on submit. Method will be "POST" as there is personal information.
 
+
+**6. Check Departments modal form works.**
+![Department modal screen](../images/project_screenshots/Test_Dept_%20Mode_20201013_laptop.jpg)
+
+Please note that the API does not return departments of id 2 nor 20.
+
+![Department API](../images/project_screenshots/Test_Dept_%20Mode_20201013_API.jpg)
+
 ### Responsiveness on search results
 
 **Using [Am I Responsive](http://ami.responsivedesign.is/)**
@@ -91,7 +99,4 @@ iPad:
 ![Intro iPad](../images/project_screenshots/Test_Intro_20201013_iPad.jpg)
 iPad Pro:
 ![Intro iPadPro](../images/project_screenshots/Test_Intro_20201013_iPadPro.jpg)
-
-
-
 
