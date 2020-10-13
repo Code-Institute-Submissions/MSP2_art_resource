@@ -1,11 +1,11 @@
 ## Testing
 
-1. Open the resource page and read introduction informing viewer of its purpose. 
+**1. Open the resource page and read introduction informing viewer of its purpose.**
+
+![Intro Laptop](../images/project_screenshots/Test_Intro_20201013_laptop.jpg)
 
 
-
-
-2. Check that the Metropolitan Museum of Art's API search request produces the same number of objects as the search criteria given by the form.
+**2. Check that the Metropolitan Museum of Art's API search request produces the same number of objects as the search criteria given by the form.**
 
 ### Museums search API invoked
 ![Museums API search](../images/project_screenshots/Testing_searchAPI.jpg)
@@ -22,7 +22,7 @@ Unfortunately found that when reversing the order of the criteria in the API cal
 Added issue #36 on 7th October to API's Github and given email address: openaccess@metmuseum.org, on September 22nd 2020.
 ![Issue 36](../images/project_screenshots/API_Issue_36.jpg)
 
-3. Check that a blank search term works.
+**3. Check that a blank search term works.**
 
 ### Museums search API invoked with blank 'q'
 
@@ -40,10 +40,10 @@ Added issue #36 on 7th October to API's Github and given email address: openacce
 
 ![Forms Search empty quotes q](../images/project_screenshots/Test_SearchFORM_q_emptyquotes.jpg)
 
-Although both API and Form searches match results, I believe that the returned result for blank search term 'q' to be misleading. 
-Proposing to intercept blank search terms on form and replace with empty quotes.
+_Although both API and Form searches match results, I believe that the returned result for blank search term 'q' to be misleading. 
+Proposing to intercept blank search terms on form and replace with empty quotes._
 
-### Testing enhancement. Selection on department name rather than department id.
+**4. Testing enhancement. Selection on department name rather than department id.**
 
 Incorporated a drop down selection list of department names rather than numeric department identifiers within the selection criteria form.
 Testing that the department name selected can be easily converted back to it's identifier for the API search endpoint.
@@ -60,13 +60,13 @@ Comparing with API's search using same search parameters
 Result totals match.
 
 
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
+**5. Try to submit the form with all inputs valid and verify that a success message appears.**
 
 No success message as no valid action on submit. Method will be "POST" as there is personal information.
 
 ### Responsiveness on search results
 
-Using [Am I Responsive](http://ami.responsivedesign.is/)
+**Using [Am I Responsive](http://ami.responsivedesign.is/)**
 
 At first the search results looked OK, but wider viewports could utilise the right hand side for the artwork's details, whilst the left hand side is left for the image(s).
 
@@ -83,4 +83,15 @@ Testing different screen sizes:
 | Laptop with MDPI screen             | 1280px | xl         |
 
 
-### Peer review and feedback
+Nokia's viewport truncated total line:
+![Intro Nokia](../images/project_screenshots/Test_Intro_20201013_nokia.jpg)
+Nexus:
+![Intro Nexus](../images/project_screenshots/Test_Intro_20201013_nexus7.jpg)
+iPad:
+![Intro iPad](../images/project_screenshots/Test_Intro_20201013_iPad.jpg)
+iPad Pro:
+![Intro iPadPro](../images/project_screenshots/Test_Intro_20201013_iPadPro.jpg)
+
+
+
+
