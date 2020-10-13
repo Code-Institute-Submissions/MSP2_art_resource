@@ -104,12 +104,13 @@ Repeated department name selection drop-down input fields.
 
 ```javascript
 document.getElementById("selDept").innerHTML += selHTML;
+```
 
 changed to:
 
 ```javascript
 document.getElementById("selDept").innerHTML = selHTML;
-
+```
 
 
 ### Responsiveness on search results
