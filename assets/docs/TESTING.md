@@ -90,6 +90,16 @@ Previous page
 
 ![Bottom previous page](../images/project_screenshots/Test_Pages_%2020201013_bottom2_prev.jpg)
 
+**8. Repeat selection criteria.**
+
+Due to first selection returning 0 results, attempted to call the selection form again and amend selection criteria.
+
+This produced an error in the selection criteria form. 
+
+Repeated department name selection drop-down input fields.
+
+![Selection Error](../images/project_screenshots/Test_Selection_20201013_Error.jpg)
+
 ### Responsiveness on search results
 
 **Using [Am I Responsive](http://ami.responsivedesign.is/)**
