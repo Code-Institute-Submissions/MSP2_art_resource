@@ -140,6 +140,25 @@ When this 'next page' button is selected, the works disappear, and there is no b
 
 ![Next page4 selected](../images/project_screenshots/Test_Page1_20201014_nexp_page_selected.jpg)
 
+
+**Fix**
+
+```javascript
+function generatePaginationButton(pageCnt) {
+   
+    document.getElementById("metPages").innerHTML = `<table><tr><td>`;
+    if ( pageCnt > 1) {
+        document.getElementById("metPages").innerHTML += `<button id="btnPrev1" onClick="writePreviousPage(${pageCnt})" class="btn btn-secondary btn-sm">Previous 5 artworks of <span class="badge badge-light">${pageCnt}</span> pages</button>`;
+    }
+    document.getElementById("metPages").innerHTML += `</td></tr>`;
+
+    document.getElementById("metPages").innerHTML += `<tr><td>`;
+    if ( pageCnt > 1) {
+        document.getElementById("metPages").innerHTML += `<button id="btnNext1" onClick="writeNextPage(${pageCnt})" class="btn btn-secondary btn-sm">Next 5 artworks of <span class="badge badge-light">${pageCnt}</span> pages</button>`;
+    }
+    document.getElementById("metPages").innerHTML += `</td></tr>`;
+ ```
+
 ### Responsiveness on search results
 
 **Using [Am I Responsive](http://ami.responsivedesign.is/)**
