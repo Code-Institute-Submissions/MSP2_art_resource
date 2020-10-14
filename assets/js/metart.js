@@ -254,18 +254,10 @@ function writeObjects() {
             objects=item.objectIDs;
        
             for (objectId of objects) {
+                console.log("object id for "+objectId);
                 if (totalInt < 6) { 
                     writeObjectDetails(objectId);
                     generatePaginationButton(pageCnt);
-                
-                    if ( currentPg < 2 ) {
-                        document.getElementById("btnPrev1").style.display = "none";
-                        document.getElementById("btnPrev2").style.display = "none";
-                    }    
-                    else {
-                            document.getElementById("btnPrev1").style.display = "block";
-                            document.getElementById("btnPrev2").style.display = "block";
-                    }
                 }
                 /*  Decided on 5 artworks per page, to save on memory issues... */    
                 else {
@@ -278,14 +270,6 @@ function writeObjects() {
                     else {
                         if ( artCnt % 5 == 1 ) { pageCnt++ ; }
                         generatePaginationButton(pageCnt);
-                    
-                        if ( currentPg < 2 ) {
-                            document.getElementById("btnPrev1").style.display = "none";
-                            document.getElementById("btnPrev2").style.display = "none";
-                        } else {
-                            document.getElementById("btnPrev1").style.display = "block";
-                            document.getElementById("btnPrev2").style.display = "block";
-                        }
                         thisArtWork = new DisplayObject(artCnt,objectId,pageCnt);
                         displayObjects.push(thisArtWork);
                     }    
@@ -582,13 +566,13 @@ function generatePaginationButton(pageCnt) {
     document.getElementById("metPages").innerHTML = `<table><tr><td>`;
     if ( pageCnt > 1) {
         document.getElementById("metPages").innerHTML += `<button id="btnPrev1" onClick="writePreviousPage(${pageCnt})" class="btn btn-secondary btn-sm">Previous 5 artworks of <span class="badge badge-light">${pageCnt}</span> pages</button>`;
-    }   
+    }
     document.getElementById("metPages").innerHTML += `</td></tr>`;
 
     document.getElementById("metPages").innerHTML += `<tr><td>`;
     if ( pageCnt > 1) {
         document.getElementById("metPages").innerHTML += `<button id="btnNext1" onClick="writeNextPage(${pageCnt})" class="btn btn-secondary btn-sm">Next 5 artworks of <span class="badge badge-light">${pageCnt}</span> pages</button>`;
-    }   
+    }
     document.getElementById("metPages").innerHTML += `</td></tr>`;
  
     document.getElementById("metPages").innerHTML += `<tr><td>`;
