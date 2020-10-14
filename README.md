@@ -113,6 +113,9 @@ For the sake of brevity, see separate link for testing procedures :
 ### CSS Validated
 [W3C Validator](http://jigsaw.w3.org/css-validator/validator?uri=https://mikedjgreen.github.io/MSP2_art_resource/assets/css/stylesheet.css).
 
+### JavaScript tidied
+Passed code through [JSHint](https://jshint.com/about/)
+
 ## Deployment
 
 Developed on GitPod using git and GitHub.

@@ -104,6 +104,19 @@ Repeated department name selection drop-down input fields.
 
 ![Selection Error](../images/project_screenshots/Test_Selection_20201013_Error.jpg)
 
+**Fix**
+
+```javascript
+document.getElementById("selDept").innerHTML += selHTML;
+```
+
+changed to:
+
+```javascript
+document.getElementById("selDept").innerHTML = selHTML;
+```
+
+
 ### Responsiveness on search results
 
 **Using [Am I Responsive](http://ami.responsivedesign.is/)**
