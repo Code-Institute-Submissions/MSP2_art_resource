@@ -116,6 +116,29 @@ changed to:
 document.getElementById("selDept").innerHTML = selHTML;
 ```
 
+**9. Testing enhancement. Criteria warning display**
+
+Introduced a warning division to display search form validation messages.
+This is to capture 'dateBegin' and 'dateEnd' errors, as API endpoint discusses 
+> You must use both dateBegin and dateEnd 
+
+![No begin date selected](../images/project_screenshots/Test_Warning_20201014_no_begin_selection.jpg)
+
+![Warning message for no begin date](../images/project_screenshots/Test_Warning_20201014_no_begin.jpg)
+
+No end date selected gives a warning too.
+
+![Warning message for no end date](../images/project_screenshots/Test_Warning_20201014_no_end.jpg)
+
+**10. Problem when only one page (5 art works) found.**
+
+When only one page worth of art works are found for a selection, then there should not be a 'next page' button displayed.
+
+![Next page when only one page](../images/project_screenshots/Test_Page1_20201014.jpg)
+
+When this 'next page' button is selected, the works disappear, and there is no button to get them back (without re-entering the selection form).
+
+![Next page4 selected](../images/project_screenshots/Test_Page1_20201014_nexp_page_selected.jpg)
 
 ### Responsiveness on search results
 

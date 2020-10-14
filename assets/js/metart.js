@@ -441,11 +441,13 @@ function writeObjectDetails(obj_ID) {
             };
         };
         */
+        /*
         if (objConstituents.length > 0 ) {
             for ( let i in objConstituents ) {
-            document.getElementById("metArt").innerHTML += `Constituents: ${objConstituents[i]} <br>`;
+                document.getElementById("metArt").innerHTML += `Constituents: ${objConstituents[i]} <br>`;
             }
         }
+        */
 
         if (objWiki.length > 0 ) {
             document.getElementById("metArt").innerHTML += `WIKIData: <a href="${objWiki}" target="_blank" title="WIKIData link">WIKI link</a>  <br>`;
