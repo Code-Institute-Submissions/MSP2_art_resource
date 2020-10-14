@@ -391,11 +391,11 @@
                           data-trigger="hover"
                           data-placement="top"
                           title="Objects since this year"
-                          data-content="e.g. 1600"
+                          data-content="e.g. 1600 or 100 (BCE)"
                           >Beginning date?
                         </label>
                         <input
-                          type="text"
+                          type="number"
                           class="form-input"
                           id="qryBegin"
                           name="qryBegin"
@@ -408,11 +408,11 @@
                           data-trigger="hover"
                           data-placement="top"
                           title="Objects prior to this year"
-                          data-content="e.g. 1800"
+                          data-content="e.g. 1800 or 100 (CE)"
                           >End date?
                         </label>
                         <input
-                          type="text"
+                          type="number"
                           class="form-input"
                           id="qryEnd"
                           name="qryEnd"
@@ -442,6 +442,7 @@
       </div>
 
       <!-- Search objects results -->
+      <div id="metWarnings"></div>
       <div id="metCriteria"></div>
       <div id="metArtFoundTotal"></div>
       <div id="metPageCount"></div>

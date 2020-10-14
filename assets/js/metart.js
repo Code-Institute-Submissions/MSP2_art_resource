@@ -122,7 +122,7 @@ function loadDepts() {
 }
 
 function writeDeptName(data) {
-    document.getElementById("metCriteria").innerHTML += " "+ data.displayName + "</p>";
+    document.getElementById("metCriteria").innerHTML += "<p> "+ data.displayName + "</p>";
 }
 
 function getDeptName(deptId) {
@@ -188,7 +188,7 @@ function loadSelDepts() {
 */
 
 function writeCriteria() {
-    document.getElementById("metCriteria").innerHTML = "<p> Search criteria: "+searchCrit1+" "+searchCrit2+" </p>";
+    document.getElementById("metCriteria").innerHTML = "<p> API Search criteria: "+searchCrit1+searchCrit2+" </p>";
 }
 
 function getMetSearch(cb1) {
@@ -360,16 +360,17 @@ function writeObjectDetails(obj_ID) {
         objReign = item.reign;
         objDimensions = item.dimensions;
         objCreditLine = item.creditLine;
-        //objAdditionalImages = item.additionalImages; // array
+        
+        /*
         for ( let i in item.additionalImages ) {
             objAdditionalImages.push(item.additionalImages[i]);
         }
-        //objConstituents = parse(item.constituents);  //array
-        /*
+        */
+
         for ( let i in item.constituents ) {
             objConstituents.push(item.constituents[i]);
         }    
-        */
+
         objWiki = item.objectWikidata_URL;
         objArtistDisplayBio = item.artistDisplayBio;
         objPortfolio = item.portfolio;
@@ -500,6 +501,7 @@ function writeObjectDetails(obj_ID) {
 function getSelection() {
     $(document).ready(function(){
         $("#searchBtn").on("click",function() {
+            document.getElementById("metWarnings").innerHTML = "";
             document.getElementById("metCriteria").innerHTML = "";
             document.getElementById("metArtFoundTotal").innerHTML = "";
             writeSelection();
@@ -508,7 +510,14 @@ function getSelection() {
 }
 
 function writeSelection() {
-    //qryStr = document.forms["metArtCriteria"]["queryString"].value;
+    /*
+     Search criteria being built up afresh, need to clear down previous criteria
+    */
+    searchCrit1 = "";
+    searchCrit2 = "";
+    searchCrit2Orig = "";
+    document.getElementById("metWarnings").innerHTML = "";
+
     qryStr = document.getElementById("metArtCriteria").elements.namedItem("queryString").value;
     /*    
         Prototype search form asked for department id.
@@ -527,6 +536,13 @@ function writeSelection() {
     // must have both values for dateBegin and dateEnd queries:
     qryBegin = document.getElementById("metArtCriteria").elements.namedItem("qryBegin").value;        // dateBegin
     qryEnd = document.getElementById("metArtCriteria").elements.namedItem("qryEnd").value;    
+    //Are both date values entered?
+    if ( !qryBegin == "" && qryEnd == "" ) {
+        document.getElementById("metWarnings").innerHTML += `<p> <mark>No end year given</mark></p>`;
+    } 
+    if ( qryBegin == "" && !qryEnd == "") { 
+        document.getElementById("metWarnings").innerHTML += `<p> <mark>No begin year given</mark></p>`;
+    }
 
     getDeptName(qryDept);  
     
@@ -676,6 +692,7 @@ function writePreviousPage(pageCnt) {
 function clickBtnNew () {
     /*    Clear down previous search results...  */
     document.getElementById("metArt").innerHTML = "";
+    document.getElementById("metWarnings").innerHTML = "";
     document.getElementById("metCriteria").innerHTML = "";
     document.getElementById("metArtFoundTotal").innerHTML = "";
     document.getElementById("metPagesTop").innerHTML = "";

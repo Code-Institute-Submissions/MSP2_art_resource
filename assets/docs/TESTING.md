@@ -66,6 +66,7 @@ No success message as no valid action on submit. Method will be "POST" as there 
 
 
 **6. Check Departments modal form works.**
+
 ![Department modal screen](../images/project_screenshots/Test_Dept_%20Mode_20201013_laptop.jpg)
 
 Please note that the API does not return departments of id 2 nor 20.
@@ -82,10 +83,13 @@ Search for more than one page (5 works) of art works.
 ![Initial botton page](../images/project_screenshots/Test_Pages_%2020201013_bottom2.jpg)
 
 Next page
+
 ![Top next page](../images/project_screenshots/Test_Pages_%2020201013_top2_next.jpg)
 
 ![Bottom next page](../images/project_screenshots/Test_Pages_%2020201013_bottom2_next.jpg)
+
 Previous page
+
 ![Top previous page](../images/project_screenshots/Test_Pages_%2020201013_top2_prev.jpg)
 
 ![Bottom previous page](../images/project_screenshots/Test_Pages_%2020201013_bottom2_prev.jpg)
@@ -120,11 +124,18 @@ Testing different screen sizes:
 
 
 Nokia's viewport truncated total line:
+
 ![Intro Nokia](../images/project_screenshots/Test_Intro_20201013_nokia.jpg)
+
 Nexus:
+
 ![Intro Nexus](../images/project_screenshots/Test_Intro_20201013_nexus7.jpg)
+
 iPad:
+
 ![Intro iPad](../images/project_screenshots/Test_Intro_20201013_iPad.jpg)
+
 iPad Pro:
+
 ![Intro iPadPro](../images/project_screenshots/Test_Intro_20201013_iPadPro.jpg)
 

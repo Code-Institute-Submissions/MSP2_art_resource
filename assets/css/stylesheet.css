@@ -72,6 +72,10 @@ header {
 }
 
 /*--------------------------------------------Searched collection display */
+#metWarnings{
+    text-align: center;
+}
+
 #metCriteria {
     font-size: 0.75em;
     font-style: italic;
