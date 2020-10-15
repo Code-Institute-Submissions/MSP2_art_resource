@@ -158,7 +158,7 @@ function generatePaginationButton(pageCnt) {
     }
     document.getElementById("metPages").innerHTML += `</td></tr>`;
  ```
-** 11. Testing 2 criteria warnings.**
+**11. Testing 2 criteria warnings.**
 
 As well as allowing incomplete dates, but warning of the selection, could have a blank search term 'q'.
 Currently only the one warning is displayed.

@@ -503,6 +503,13 @@ function writeSelection() {
     document.getElementById("metWarnings").innerHTML = "";
 
     qryStr = document.getElementById("metArtCriteria").elements.namedItem("queryString").value;
+    /*
+        Has a query term been given?  
+        Warning if blank.
+    */
+    if ( qryStr == "" ) {
+        document.getElementById("metWarnings").innerHTML += `<p><mark>Blank search term </mark></p>`;
+    }
     /*    
         Prototype search form asked for department id.
         Updated search form, now asking, via drop-down selections, for department names
