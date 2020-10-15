@@ -71,6 +71,9 @@ header {
 .form-check-label{
     margin-right: 5px;
 }
+.invalid-feedback{
+    margin-left: 4px;
+}
 
 /*--------------------------------------------Modal */
 #metArtDept {
@@ -80,6 +83,10 @@ header {
 
 #metArtSearch {
     font-size: 0.75em;
+}
+
+#qryEnd, #qryBegin  {
+    width:50px;
 }
 
 /*--------------------------------------------Searched collection display */
