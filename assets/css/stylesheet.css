@@ -68,6 +68,10 @@ header {
     background-color: #D9E6F3;
 }
 
+.form-check-label{
+    margin-right: 5px;
+}
+
 /*--------------------------------------------Modal */
 #metArtDept {
     font-size: 0.75em;
