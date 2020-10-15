@@ -158,6 +158,16 @@ function generatePaginationButton(pageCnt) {
     }
     document.getElementById("metPages").innerHTML += `</td></tr>`;
  ```
+** 11. Testing 2 criteria warnings.**
+
+As well as allowing incomplete dates, but warning of the selection, could have a blank search term 'q'.
+Currently only the one warning is displayed.
+
+![No search term or end date](../images/project_screenshots/Test_Warning_20201015_no_q.jpg)
+
+Checked to see if the API search gives the same result. It does.
+
+![No search term nor end date API](../images/project_screenshots/Test_Warning_20201015_no_q_API.jpg)
 
 ### Responsiveness on search results
 
