@@ -169,6 +169,21 @@ Checked to see if the API search gives the same result. It does.
 
 ![No search term nor end date API](../images/project_screenshots/Test_Warning_20201015_no_q_API.jpg)
 
+**Fix**
+
+```javascript
+    qryStr = document.getElementById("metArtCriteria").elements.namedItem("queryString").value;
+    /*
+        Has a query term been given?  
+        Warning if blank.
+    */
+    if ( qryStr == "" ) {
+        document.getElementById("metWarnings").innerHTML += `<p><mark>Blank search term </mark></p>`;
+    }
+```
+
+![Two warnings given](../images/project_screenshots/Test_Warning_20201015_no_q_ok.jpg)
+
 ### Responsiveness on search results
 
 **Using [Am I Responsive](http://ami.responsivedesign.is/)**
