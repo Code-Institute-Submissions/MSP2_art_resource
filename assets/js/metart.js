@@ -462,7 +462,7 @@ function writeObjectDetails(obj_ID) {
         if (objLocale.length > 0 ) { document.getElementById("metArt").innerHTML += `Locale: ${objLocale} <br>`;}
         if (objLocus.length > 0 ) { document.getElementById("metArt").innerHTML += `Locus: ${objLocus} <br>`;}
         if ( objExcavation.length > 0 ) { document.getElementById("metArt").innerHTML += `Excavation: ${objExcavation} <br>`;}
-        if ( objRiver.length > 0 ) { document.getElementById("metArtt").innerHTML += `River: ${objRiver} <br>`;}
+        if ( objRiver.length > 0 ) { document.getElementById("metArt").innerHTML += `River: ${objRiver} <br>`;}
         if ( objClassification.length > 0 ) { document.getElementById("metArt").innerHTML += `Classification: ${objClassification} <br>`;}
 
          if (objLinkResource.length > 0){ 
