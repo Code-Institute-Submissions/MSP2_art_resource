@@ -92,6 +92,15 @@ header {
 .modal-header, .modal-footer {
     background-color: #D9E6F3;
 }
+/*--------------------------------------------Modal page buttons */
+
+#btnPrev2, #btnPrev1, #btnNext2, #btnNext1 {
+    margin-right: 5px;
+}
+
+#btn-gp-top {
+    margin-bottom: 5px;
+}
 
 /*--------------------------------------------Searched collection display */
 #metWarnings{
