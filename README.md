@@ -88,6 +88,7 @@ An application Programming Interface specifically for documenting New York's vas
 - Incorporate the resource page into a wider art club website.
 - Sort found works on a selected object field.
 - On larger viewports direct art work's details to the right of the title and image displayed.
+- Display subtotal of objects per department on department form.
 
 ## Technologies Used
 
