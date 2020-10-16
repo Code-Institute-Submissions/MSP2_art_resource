@@ -89,6 +89,10 @@ header {
     width:50px;
 }
 
+.modal-header, .modal-footer {
+    background-color: #D9E6F3;
+}
+
 /*--------------------------------------------Searched collection display */
 #metWarnings{
     text-align: center;
