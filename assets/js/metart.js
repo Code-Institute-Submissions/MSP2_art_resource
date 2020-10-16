@@ -254,7 +254,6 @@ function writeObjects() {
             objects=item.objectIDs;
        
             for (objectId of objects) {
-                console.log("object id for "+objectId);
                 if (totalInt < 6) { 
                     writeObjectDetails(objectId);
                     generatePaginationButton(pageCnt);
