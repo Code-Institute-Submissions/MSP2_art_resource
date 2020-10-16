@@ -33,7 +33,7 @@ The art works searched for are displayed in an easy to view fashion.
 User Stories:
 - as a member of the hosting site's art club, they will use page to access New York's Museum of Art's collection for reference.
 - as a general art-loving browser will be able to easily search the collection with appropriate parameters.
-- easily read details of the objects found will be displayed for reference.
+- as a general user can easily read details of the objects found.
 
 ### Strategy
 To provide an easier-to-use application for the Museum's provided API portal of it's collections.
@@ -104,8 +104,9 @@ For each, provide its name, a link to its official site and a short sentence of 
 
 ## Testing
 
+A Jasmine script based testing strategy was examined and dropped in favour of a more manual approach based on the user stories.
 For the sake of brevity, see separate link for testing procedures :
-[Testing](assets/docs/TESTING.md)
+[Testing](assets/docs/TESTING.md).  
 
 ### HTML Validated
 [W3.org Validator](https://validator.w3.org/nu/?doc=https://mikedjgreen.github.io/MSP2_art_resource/index.html).
