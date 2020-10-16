@@ -217,19 +217,41 @@ Testing different screen sizes:
 | Laptop with MDPI screen             | 1280px | xl         |
 
 
-Nokia's viewport _truncated total line_:
+**Nokia**'s viewport _truncated total line_:
 
 ![Intro Nokia](../images/project_screenshots/Test_Intro_20201013_nokia.jpg)
 
-Nexus:
+![Nokia found top](../images/project_screenshots/Test_Nokia_found_top_20201016.jpg)
+
+![Nokia found bottom](../images/project_screenshots/Test_Nokia_found_bottom_20201016.jpg)
+
+
+**Nexus**:
 
 ![Intro Nexus](../images/project_screenshots/Test_Intro_20201013_nexus7.jpg)
 
-iPad:
+![Nexus found top](../images/project_screenshots/Test_Nexus_found_top_20201016.jpg)
+
+![Nexus found bottom](../images/project_screenshots/Test_Nexus_found_bottom_20201016.jpg)
+
+**iPad**:
 
 ![Intro iPad](../images/project_screenshots/Test_Intro_20201013_iPad.jpg)
 
-iPad Pro:
+![iPad found top](../images/project_screenshots/Test_iPad_found_top_20201016.jpg)
+
+![iPad found bottom](../images/project_screenshots/Test_iPad_found_bottom_20201016.jpg)
+
+**iPad Pro**:
 
 ![Intro iPadPro](../images/project_screenshots/Test_Intro_20201013_iPadPro.jpg)
 
+![iPad Pro found top](../images/project_screenshots/Test_iPadPro_found_top_20201016.jpg)
+
+![iPad Pro found top](../images/project_screenshots/Test_iPadPro_found_bottom_20201016.jpg)
+
+**laptop**:
+
+![laptop found top](../images/project_screenshots/Test_laptop_found_top_20201016.jpg)
+
+![laptop found bottom](../images/project_screenshots/Test_laptop_found_bottom_20201016.jpg)
